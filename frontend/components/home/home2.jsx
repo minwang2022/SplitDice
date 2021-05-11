@@ -23,6 +23,7 @@ class Homepage extends React.Component {
                 <h1>Welcome to the SplitDice</h1>
                 <ul>
                     <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/signUp">Signup</Link></li>
                     <li onClick={this.handleGuestLogin}>DEMO</li>
                 </ul>
                 <h3>a simple app to keep track of your shared expense and balance with housemate, trips, groups, friends, and family. Our algorithm provides best solution to split the expenses fairly by the least transactions.</h3>

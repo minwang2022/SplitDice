@@ -25,6 +25,7 @@ class SessionForm extends React.Component {
     };
 
     loginErrors() {
+
         return(
             <ul>
                 {
@@ -38,33 +39,77 @@ class SessionForm extends React.Component {
     };
 
    render() {
-       return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    Welcome to SplitDice, Ready for initial Heroku push
-                    <br/>
-                    Please {this.props.formType} or {this.props.navLink}
+        if(this.props.formType === 'login') {
+            return (
+    
+                <div>
+                    <form onSubmit={this.handleSubmit}>
+                        Welcome to SplitDice, Ready for initial Heroku push
+                        <br/>
+                        Please {this.props.formType} or {this.props.navLink}
+                        {this.loginErrors()}
+                        <br/>
+                        <label>Username:
+                            <input type="text"
+                                value={this.state.username}
+                                onChange={this.update('username')}
+                            />
+                        </label>
+                        <br/>
+                            <label>Password:
+                            <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                            />
+                            </label>
+                        <br/>
+                        <input type="submit" value={this.props.formType} />
+                    </form>
                     {this.loginErrors()}
-                    <label>Username:
-                        <input type="text"
-                            value={this.state.username}
-                            onChange={this.update('username')}
-                        />
-                    </label>
-                    <br/>
+                </div>
+  
+            )
+        } else {
+            return (
+    
+                <div>
+                    <form onSubmit={this.handleSubmit}>
+                        Welcome to SplitDice, Ready for initial Heroku push
+                        <br/>
+                        Please {this.props.formType} or {this.props.navLink}
+                        {this.loginErrors()}
+                        <br/>
+                        <label>Username:
+                            <input type="text"
+                                value={this.state.username}
+                                onChange={this.update('username')}
+                            />
+                        </label>
+                        <br/>
+                        <label>Email:
+                            <input type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                            />
+                        </label>
+                        <br/>
                         <label>Password:
                         <input type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
                         />
-                    </label>
-                    <br/>
-                    <input type="submit" value={this.props.formType} />
-                </form>
-            </div>
-
-        )
+                        </label>
+                        <br/>
+                        <input type="submit" value={this.props.formType} />
+                    </form>
+                    {this.loginErrors()}
+                </div>
+  
+            )
+        } 
     }
+
+
 }
 
 export default SessionForm
