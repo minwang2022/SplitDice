@@ -1,4 +1,4 @@
-import * as Util from '../Util/session_api_Util.js';
+import * as Util from '../Util/session_api_util.js';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "CLEAR_ERRORS";
