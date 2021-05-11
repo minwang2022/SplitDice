@@ -2,7 +2,10 @@ import React from "react";
 
 const App = () => (
   <div>
-    <h1>SplitWise</h1>
+        <header>
+            <h1>SplitWise</h1>
+            <GreetingContainer/>
+        </header>
   </div>
 );
 
