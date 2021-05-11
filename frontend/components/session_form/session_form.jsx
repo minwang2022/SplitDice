@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
        return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    Welcome to SplitDice
+                    Welcome to SplitDice, Ready for initial Heroku push
                     <br/>
                     Please {this.props.formType} or {this.props.navLink}
                     {this.loginErrors()}
