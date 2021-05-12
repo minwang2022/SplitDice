@@ -25,6 +25,7 @@ class Homepage extends React.Component {
                     <div className="top-line-headline">
                     <div className="money-icon"></div>
                     <h1>Less stress when sharing expenses <strong>on trips</strong></h1>
+                    <br/>
                     <Link to="signup" className="signup-button">Sign up</Link>
                     <p><strong>Totally free</strong> for web, iPhone, and Android.</p>
                     </div>
