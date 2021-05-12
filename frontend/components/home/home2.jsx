@@ -26,7 +26,7 @@ class Homepage extends React.Component {
                     <li><Link to="/signUp">Signup</Link></li>
                     <li onClick={this.handleGuestLogin}>DEMO</li>
                 </ul>
-                <h3>a simple app to keep track of your shared expense and balance with housemate, trips, groups, friends, and family. Our algorithm provides best solution to split the expenses fairly by the least transactions.</h3>
+                <h3>A simple app to keep track of your shared expense and balance with housemate, trips, groups, friends, and family. Our algorithm provides best solution to split the expenses fairly by the least transactions.</h3>
                 <div>
                     <SessionFormContainer {...this.props}/>
                 </div>

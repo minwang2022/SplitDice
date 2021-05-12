@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
     
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        Welcome to SplitDice, Ready for initial Heroku push
+                        Welcome to SplitDice
                         <br/>
                         Please {this.props.formType} or {this.props.navLink}
                         {this.loginErrors()}
@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
                         <br/>
                         <input type="submit" value={this.props.formType} />
                     </form>
-                    {this.loginErrors()}
+
                 </div>
   
             )
@@ -74,7 +74,7 @@ class SessionForm extends React.Component {
     
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        Welcome to SplitDice, Ready for initial Heroku push
+                        Welcome to SplitDice
                         <br/>
                         Please {this.props.formType} or {this.props.navLink}
                         {this.loginErrors()}
@@ -102,7 +102,7 @@ class SessionForm extends React.Component {
                         <br/>
                         <input type="submit" value={this.props.formType} />
                     </form>
-                    {this.loginErrors()}
+
                 </div>
   
             )
