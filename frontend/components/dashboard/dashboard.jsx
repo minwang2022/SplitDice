@@ -7,9 +7,10 @@ class Dashboard extends React.Component {
        
         this.handleClick = this.handleClick.bind(this);
     }
-
+    
 
     handleClick(e) {
+        debugger 
         e.preventDefault();
         return this.props.logout().then(() => this.props.router.push('/login'));
     }

@@ -2,13 +2,15 @@ import Dashboard from './dashboard.jsx';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions.js';
 
-const mSTP = (state) => {
+const mSTP = ({ session, entities: { users }}) => {
+  debugger 
     return {
-      currentUser: state.entities.users.id,
+      currentUser: users[session.id]
     };
   };
   
   const mDTP = dispatch => {
+    debugger 
     return {
       logout: () => dispatch(logout()),
     };

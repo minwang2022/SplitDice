@@ -5,21 +5,21 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import GreetingContainer from './greeting/greeting_container';
 
 const App = () => (
   
   <div>
     <header>
-      <Link to="/">
-        <h1>Split Dice</h1>
-      </Link>
+      <Link to="/"><h1>Split Dice</h1></Link>
+      <GreetingContainer />
     </header>
-
+    <Switch>
+    <AuthRoute exact path="/login" component={LogInFormContainer} />
+    <AuthRoute exact path="/signUp" component={SignUpFormContainer}/>
+    <ProtectedRoute path="/dashboard/new" component={DashboardContainer}/>
     <Route exact path="/" component={Homepage} />
-    <AuthRoute path="/login" component={LogInFormContainer}  />
-    <AuthRoute path="/signUp" component={SignUpFormContainer}/>
-    <ProtectedRoute path="/dashboard" component={DashboardContainer}/>
-    
+    </Switch>
   </div>
   );
 
