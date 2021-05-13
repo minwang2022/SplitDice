@@ -21,9 +21,22 @@
 #  index_bills_on_belong_to_group_id  (belong_to_group_id)
 #
 class Bill < ApplicationRecord
-    validates :amount, :description, :billdate, :author_id, :belong_to_group_id, presence: true
+    validates :amount, :description, :billdate, :author_id, presence: true
+    
+    belongs_to :bill_author,
+        foreign_key: :author_id,
+        class_name: :User
+    
+    has_many :bill_splits,
+        foreign_key: :bill_id,
+        class_name: :Bill_split
+    
+    has_many :bill_recipients,
+        through: :bill_splits,
+        source: :recipient
     
     
-  
+
+
 
 end

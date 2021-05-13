@@ -17,4 +17,13 @@
 #
 class BillSplit < ApplicationRecord
     validates :bill_id, :recipient_id, presence: true
+
+    belongs_to :bill,
+        foreign_key: :bill_id,
+        class_name: :Bill 
+    
+    belongs_to :recipient,
+        foreign_key: :recipient_id,
+        class_name: :User
+    
 end

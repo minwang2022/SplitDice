@@ -1,23 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SessionFormContainer from '../session_form/signup_form_container.jsx';
-import { signUp } from '../../actions/session_actions.js';
+import { login } from '../../actions/session_actions.js';
 
 class Homepage extends React.Component {
     constructor(props) {
         super(props)
-        this.handleGuestLogin = this.handleGuestLogin.bind(this); 
-    }
- 
+        
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
 
-    handleGuestLogin(e) {
-        e.preventDefault();
-        const user = {username:"Guest", email: "guest@guest.com", password: "password"};
-        signUp(user).then(() => this.props.router.push('/dashboard'));
     }
-    
+
+    handleDemoLogin(e){
+        e.preventDefault(); 
+        let user = {username: "guest", password: "password"}
+        store.dispatch(login(user));
+    };
 
     render() {
+        debugger
         return (
             <div className="homepage-container">
                 <section className="main-content group">
@@ -27,7 +28,7 @@ class Homepage extends React.Component {
                     <h1>Less stress when sharing expenses <strong>on trips</strong></h1>
                     <br/>
                     <Link to="signup" className="signup-button">Sign up</Link>
-                    <button className="signup-button" onClick={this.handleGuestLogin}>Demo</button>
+                    <button onClick={this.handleDemoLogin} className="signup-button">Demo</button>
                     <p><strong>Totally free</strong> for web, iPhone, and Android.</p>
                     </div>
                 </div>

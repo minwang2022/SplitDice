@@ -3,6 +3,7 @@ import * as Util from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "CLEAR_ERRORS";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const REMOVE_ERRORS = "REMOVE_ERRORS";
 
 export const receiveCurrentUser = currentUser => {
   return {
@@ -22,6 +23,12 @@ export const receiveErrors = errors => {
   };
 };
 
+export const removeErrors = errors => {
+  return {
+    type: REMOVE_ERRORS,
+  };
+};
+
 export const login = user => dispatch =>(
     Util.login(user)
     .then( user => (dispatch(receiveCurrentUser(user))),
@@ -36,11 +43,9 @@ export const logout = () => dispatch =>(
     )
 );
 
-export const signUp = user => dispatch =>(
-    Util.signUp(user)
+export const signup = user => dispatch =>(
+    Util.signup(user)
     .then( user => (dispatch(receiveCurrentUser(user))),
         err => (dispatch(receiveErrors(err.responseJSON)))
     )
 );
-
-
