@@ -13,7 +13,7 @@ class Homepage extends React.Component {
     handleGuestLogin(e) {
         e.preventDefault();
         const user = {username:"Guest", email: "guest@guest.com", password: "password"};
-        store.dispatch(signUp(user)).then(() => this.props.router.push('/dashboard'));
+        signUp(user).then(() => this.props.router.push('/dashboard'));
     }
     
 
@@ -27,6 +27,7 @@ class Homepage extends React.Component {
                     <h1>Less stress when sharing expenses <strong>on trips</strong></h1>
                     <br/>
                     <Link to="signup" className="signup-button">Sign up</Link>
+                    <button className="signup-button" onClick={this.handleGuestLogin}>Demo</button>
                     <p><strong>Totally free</strong> for web, iPhone, and Android.</p>
                     </div>
                 </div>

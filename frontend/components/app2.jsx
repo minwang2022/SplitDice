@@ -8,17 +8,19 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import GreetingContainer from './greeting/greeting_container';
 
 const App = () => (
-  
+
   <div>
+   
     <header>
       <Link to="/"><h1>Split Dice</h1></Link>
       <GreetingContainer />
     </header>
+    
     <Switch>
     <AuthRoute exact path="/login" component={LogInFormContainer} />
     <AuthRoute exact path="/signUp" component={SignUpFormContainer}/>
-    <ProtectedRoute path="/dashboard/new" component={DashboardContainer}/>
-    <Route exact path="/" component={Homepage} />
+    <ProtectedRoute exact path="/dashboard" component={DashboardContainer}/>
+    <AuthRoute exact path="/" component={Homepage} />
     </Switch>
   </div>
   );

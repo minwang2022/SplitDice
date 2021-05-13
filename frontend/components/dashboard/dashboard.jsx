@@ -7,7 +7,7 @@ class Dashboard extends React.Component {
        
         this.handleClick = this.handleClick.bind(this);
     }
-    
+
 
     handleClick(e) {
         debugger 
@@ -21,13 +21,8 @@ class Dashboard extends React.Component {
         return(
             <div>
                 <header>
-                    <h1>Split Dice</h1>
-                    <ul>
-                        <li onClick={this.handleClick}> Log Out</li>
-                        <li>{this.props.currentUser.username}</li>
-                    </ul>
+                    <h1>Dashboard</h1>
                 </header>
-                <h1>Dashboard</h1>
                 <p>this is working</p>
             </div>
         )};

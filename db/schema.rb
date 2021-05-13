@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_191756) do
+ActiveRecord::Schema.define(version: 2021_05_13_025747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bill_splits", force: :cascade do |t|
+    t.integer "bill_id", null: false
+    t.integer "recipient_id", null: false
+    t.boolean "recipient_paid", null: false
+    t.float "bill_amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_id"], name: "index_bill_splits_on_bill_id"
+    t.index ["recipient_id"], name: "index_bill_splits_on_recipient_id"
+  end
+
+  create_table "bills", force: :cascade do |t|
+    t.float "amount", null: false
+    t.string "description", null: false
+    t.date "bill_date", null: false
+    t.integer "author_id", null: false
+    t.boolean "paid", default: false
+    t.integer "belong_to_group_id", null: false
+    t.string "note", null: false
+    t.string "category", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "split_percentage", null: false
+    t.index ["author_id"], name: "index_bills_on_author_id"
+    t.index ["belong_to_group_id"], name: "index_bills_on_belong_to_group_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
