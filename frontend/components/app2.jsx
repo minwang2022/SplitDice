@@ -12,7 +12,7 @@ const App = () => (
   <div>
    
     <header>
-      <Link to="/"><h1>Split Dice</h1></Link>
+      <Link to="/"><h1 className="header-top">Split Dice</h1></Link>
       <GreetingContainer />
     </header>
     

@@ -1,5 +1,5 @@
 
-.main-content {
+  .main-content {
     position: relative;
   }
   
@@ -35,7 +35,7 @@
     clear: both;
     padding-top: 15px;
   }
-/*   
+  
   .homepage-container{
     background-image: url('homepage_background.png');
     z-index: -1;
@@ -44,7 +44,7 @@
     min-width: 100%;
     min-height: 100%;
     margin-top: 40px;
-  } */
+  }
   
   .image-form {
     width: 100%;
@@ -65,14 +65,34 @@
     cursor: pointer;
     font-weight: 600;
     border: 0 solid;
-    font-size: 0.75rem;
+    font-size: 20px;
     margin: 2px;
+    box-shadow: 0 2px 0 0  rgb(55 59 63 / 50%);
   }
   
-
+  
+  .login-button {
+    width: 93%;
+    text-align: center;
+    box-shadow: 0 2px 0 0  rgb(55 59 63 / 50%);
+    color: white;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 5px;
+    background-color: #1CC29F;
+    cursor: pointer;
+    font-weight: 600;
+    border: 0 solid;
+    font-size: 20px;
+    margin: 2px;
+    
+  }
 
   .signup-button:hover {
     background-color: rgb(118, 198, 204);
+    transform: scale(1.15);
     cursor: pointer;
   }
  

@@ -1,0 +1,34 @@
+.form-comtainer {
+  position: relative;
+  height: 800px;
+}
+
+.content-block {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 500px;
+  height: 500px;
+  font-size: 20px;
+}
+
+.input-box {
+  justify-content: center;
+  width: 100%;
+  height: 42px;
+  font-size: 32px;
+  margin-bottom: 17px;
+  line-height: 110%;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 4px;
+}
+.input-box:focus {
+  transform: scale(1.15);
+  border: 1px solid rgb(147, 213, 218);
+}
+.input-text {
+  display: flex;
+  justify-content: center;
+}
