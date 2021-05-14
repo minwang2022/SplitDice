@@ -67,14 +67,14 @@
     border: 0 solid;
     font-size: 20px;
     margin: 2px;
-    box-shadow: 0 2px 0 0  rgb(55 59 63 / 50%);
+    box-shadow: 0 2px 0 0 #3a3e4380;
   }
   
   
   .login-button {
     width: 93%;
     text-align: center;
-    box-shadow: 0 2px 0 0  rgb(55 59 63 / 50%);
+    box-shadow: 0 2px 0 0 #3a3e4380;
     color: white;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
@@ -91,7 +91,7 @@
   }
 
   .signup-button:hover {
-    background-color: rgb(118, 198, 204);
+    background-color: rgba(124, 215, 221, 0.596);
     transform: scale(1.15);
     cursor: pointer;
   }

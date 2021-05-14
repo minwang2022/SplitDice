@@ -18,7 +18,7 @@ class Homepage extends React.Component {
     };
 
     render() {
-        debugger
+        // debugger
         return (
             <div className="homepage-container">
                 <section className="main-content group">

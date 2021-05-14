@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions.js';
 
 const mSTP = ({ session, entities: { users }}) => {
-  debugger 
+  // debugger 
     return {
       currentUser: users[session.id]
     };
   };
   
   const mDTP = dispatch => {
-    debugger 
+    // debugger 
     return {
       logout: () => dispatch(logout()),
     };
