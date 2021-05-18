@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
    
    render() {
 
-    ////////////// form specific inserts //////////////
+    ///////// form inserts /////////
         const InsertForm = () => {
             if (this.state.username !== "") {
                 return (
@@ -75,6 +75,7 @@ class SessionForm extends React.Component {
             return null;
         }
 
+        /////////////// RENDER ELEMENTS ////////////////
         if (this.props.formType === "login") {    
             return (
                 <div className="form-container">

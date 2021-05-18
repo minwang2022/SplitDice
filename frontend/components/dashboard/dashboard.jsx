@@ -1,4 +1,5 @@
 import React from 'react';
+import FriendsContainer from '../friends/friends_container';
 
 
 class Dashboard extends React.Component {
@@ -15,6 +16,14 @@ class Dashboard extends React.Component {
         return this.props.logout().then(() => this.props.router.push('/login'));
     }
 
+    openFriendModal() {
+        this.setState({friendModalOpen: true});
+    }
+    
+    closeFriendModal() {
+        this.setState({friendModalOpen: false});
+    }
+
 
     render() {
         
@@ -23,7 +32,10 @@ class Dashboard extends React.Component {
                 <header>
                     <h1>Dashboard</h1>
                 </header>
-                <p>this is working</p>
+                <div className="dashboard-left">
+                    {/* <FriendsContainer 
+                        /> */}
+                </div>
             </div>
         )};
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_025747) do
+ActiveRecord::Schema.define(version: 2021_05_17_225846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2021_05_13_025747) do
   create_table "bill_splits", force: :cascade do |t|
     t.integer "bill_id", null: false
     t.integer "recipient_id", null: false
-    t.boolean "recipient_paid", null: false
-    t.float "bill_amount", null: false
+    t.float "splited_bill_amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "recipient_paid", default: false
     t.index ["bill_id"], name: "index_bill_splits_on_bill_id"
     t.index ["recipient_id"], name: "index_bill_splits_on_recipient_id"
   end
@@ -32,14 +32,22 @@ ActiveRecord::Schema.define(version: 2021_05_13_025747) do
     t.date "bill_date", null: false
     t.integer "author_id", null: false
     t.boolean "paid", default: false
-    t.integer "belong_to_group_id", null: false
-    t.string "note", null: false
     t.string "category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "split_percentage", null: false
+    t.integer "nums_splits"
+    t.text "note"
     t.index ["author_id"], name: "index_bills_on_author_id"
-    t.index ["belong_to_group_id"], name: "index_bills_on_belong_to_group_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "friend_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

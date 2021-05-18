@@ -28,6 +28,7 @@ class Homepage extends React.Component {
                     <h1>Less stress when sharing expenses <strong>on trips</strong></h1>
                     <br/>
                     <Link to="signup" className="signup-button">Sign up</Link>
+                     &nbsp;&nbsp;
                     <button onClick={this.handleDemoLogin} className="signup-button">Demo</button>
                     <p><strong>Totally free</strong> for web, iPhone, and Android.</p>
                     </div>

@@ -11,8 +11,8 @@ const App = () => (
 
   <div>
    
-    <header>
-      <Link to="/"><h1 className="header-top">Split Dice</h1></Link>
+    <header className= "Project-Header">
+      <Link to="/" className="header-top"><h1 >Split Dice</h1></Link>
       <GreetingContainer />
     </header>
     
