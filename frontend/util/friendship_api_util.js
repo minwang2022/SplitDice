@@ -1,37 +1,37 @@
-export const getFriend = () => (
+export const getFriendships = userId => (
     $.ajax({
         method: 'GET',
-        url: '/api/users/showFriends'
+        url: `/api/users/${userId}/friendships`
     })
 )
 
-export const addFriend = (user) => (
+export const addFriendship = (userId, friendId) => (
     $.ajax({
         method: 'POST',
-        url: '/api/user/addFriend',
-        data: { user }
+        url: '/api/friendships',
+        data: {friendship: {user_id: userId, friend_id: friendId}}
     })
 )
 
-export const deleteFriend = userId => (
-    $.ajax({
-        method: 'DELETE',
-        url: `/api/friendships/${userId}`
-    })
-)
+// export const deleteFriendship = friendshipId => (
+//     $.ajax({
+//         method: 'DELETE',
+//         url: `/api/friendships/${friendshipId}`
+//     })
+// )
 
-export const searchFriends = (query) => (
-    $.ajax({
-      url: "/api/users/searchFriends",
-      method: "GET",
-      data: { query }
-    })
-);
+// export const searchFriends = (query) => (
+//     $.ajax({
+//       url: "/api/users/searchFriends",
+//       method: "GET",
+//       data: { query }
+//     })
+// );
   
-  export const searchUsers = (query) => (
-    $.ajax({
-      url: 'api/users/searchUsers',
-      method: 'GET',
-      data: {query}
-    })
-  );
+//   export const searchUsers = (query) => (
+//     $.ajax({
+//       url: 'api/users/searchUsers',
+//       method: 'GET',
+//       data: {query}
+//     })
+//   );

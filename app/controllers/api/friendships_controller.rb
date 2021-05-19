@@ -1,27 +1,26 @@
 class Api::FriendshipsController < ApplicationController
-    # before_action :require_logged_in, only: [:create, :index, :destroy]
+    before_action :require_logged_in, only: [:create, :index]
 
     def index 
         @friendships = Friendship.where(user_id: params[:user_id])
+        render :index
     end
 
     def create 
-        @friendship1= Friendship.new(friendship_params)
-        @friendship2 = Friendship.new(user_id: @friendship1.friend_id, friend_id: @friendship1.user_id)
-    
-        if @friendship1.save && @friendship2.save
-            render '/api/friendships/index'
+        @friendship = Friendship.new(friendship_params)    
+        if @friendship.save 
+            render '/api/friendships/show'
         else
             render json: ['Invalid user'], status: 401
         end
     
     end
 
-    def destroy
-        friendship = Friendship.find(params[:id])
-        friendship.delete 
-        render 'api/friendships/index'
-    end
+    # def destroy
+    #     friendship = Friendship.find(params[:id])
+    #     friendship.delete 
+    #     render 'api/friendships/index'
+    # end
 
     private 
 

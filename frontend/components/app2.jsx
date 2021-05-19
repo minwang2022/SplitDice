@@ -6,11 +6,12 @@ import LogInFormContainer from './session_form/login_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import GreetingContainer from './greeting/greeting_container';
+import Modal from './modal/modal';
 
 const App = () => (
 
   <div>
-   
+    <Modal/>
     <header className= "Project-Header">
       <Link to="/" className="header-top"><h1 >Split Dice</h1></Link>
       <GreetingContainer />

@@ -1,8 +1,9 @@
 @friendships.each do |friendship|
     json.set! friendship.id do
         json.id friendship.id
-        json.friendId friendship.friend.id
-        json.userName friendship.friend.username 
+        json.userId friendship.user_id
+        json.friendId friendship.friend_id
+        json.username friendship.friend.username 
 
     end 
 

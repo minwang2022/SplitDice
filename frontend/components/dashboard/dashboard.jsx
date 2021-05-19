@@ -1,5 +1,5 @@
 import React from 'react';
-import FriendsContainer from '../friends/friends_container';
+import FriendsContainer from '../friendship/friendship_container';
 
 
 class Dashboard extends React.Component {
@@ -16,25 +16,16 @@ class Dashboard extends React.Component {
         return this.props.logout().then(() => this.props.router.push('/login'));
     }
 
-    openFriendModal() {
-        this.setState({friendModalOpen: true});
-    }
-    
-    closeFriendModal() {
-        this.setState({friendModalOpen: false});
-    }
-
 
     render() {
         
         return(
             <div>
-                <header>
+                <header >
                     <h1>Dashboard</h1>
                 </header>
                 <div className="dashboard-left">
-                    {/* <FriendsContainer 
-                        /> */}
+                <FriendsContainer/>
                 </div>
             </div>
         )};

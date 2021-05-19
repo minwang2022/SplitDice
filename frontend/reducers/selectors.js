@@ -1,5 +1,6 @@
 export const selectAllFriends = (state) => {
-    return Object.values(state.entities.friend)
+    debugger 
+    return Object.values(state.entities.friendships)
 }
   
   

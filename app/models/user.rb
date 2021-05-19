@@ -21,7 +21,7 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6 }, allow_nil: true
     validates :username, uniqueness: true
   
-    # after_initialize :ensure_session_token
+    after_initialize :ensure_session_token
 
     attr_reader :password
 
@@ -35,17 +35,17 @@ class User < ApplicationRecord
         source: :friend,
         dependent: :destroy
 
-    has_many :bills,
-        foreign_key: :author_id,
-        class_name: :Bill
+    # has_many :bills,
+    #     foreign_key: :author_id,
+    #     class_name: :Bill
         
-    has_many :requested_bill_splits,
-        foreign_key: :recipient_id,
-        class_name: :Bill_split
+    # has_many :requested_bill_splits,
+    #     foreign_key: :recipient_id,
+    #     class_name: :Bill_split
 
-    has_many :received_bills,
-        through: :requested_bill_splits,
-        source: :Bill
+    # has_many :received_bills,
+    #     through: :requested_bill_splits,
+    #     source: :Bill
     
     
     #USER Auth#

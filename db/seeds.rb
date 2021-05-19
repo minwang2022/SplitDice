@@ -29,17 +29,17 @@ fredy = User.create(username:"fredy", email: "fredy@fredy.com", password:"passwo
 chi = User.create(username:"chi", email: "chi@chi.com", password:"password")
 
 
-Friend.destroy_all
+Friendship.destroy_all
 
-may_june = Friend.create(user_id: may.id, friend_id: june.id)
-may_april = Friend.create(user_id: may.id, friend_id: april.id)
-may_david = Friend.create(user_id: may.id, friend_id: david.id)
-may_bill = Friend.create(user_id: may.id, friend_id: bill.id)
-may_chole = Friend.create(user_id: may.id, friend_id: chole.id)
-may_kat = Friend.create(user_id: may.id, friend_id: kat.id)
-may_fredy = Friend.create(user_id: may.id, friend_id: fredy.id)
-may_fred = Friend.create(user_id: may.id, friend_id: fred.id)
-may_chi = Friend.create(user_id: may.id, friend_id: chi.id)
+may_june = Friendship.create(user_id: may.id, friend_id: june.id)
+may_april = Friendship.create(user_id: may.id, friend_id: april.id)
+may_david = Friendship.create(user_id: may.id, friend_id: david.id)
+may_bill = Friendship.create(user_id: may.id, friend_id: bill.id)
+may_chole = Friendship.create(user_id: may.id, friend_id: chole.id)
+may_kat = Friendship.create(user_id: may.id, friend_id: kat.id)
+may_fredy = Friendship.create(user_id: may.id, friend_id: fredy.id)
+may_fred = Friendship.create(user_id: may.id, friend_id: fred.id)
+may_chi = Friendship.create(user_id: may.id, friend_id: chi.id)
 
 
 Bill.destroy_all
