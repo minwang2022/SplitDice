@@ -49,11 +49,11 @@ class User < ApplicationRecord
     
     ########Bills Logic########
 
-    def net_payments(user_id)
+    def net_payments(current_user_id)
         payments_hash = {"owed" => {}, "owe" => {}}
         
-        owe_hash = owe(user_id)
-        owed_hash = owed(user_id)
+        owe_hash = owe(current_user_id)
+        owed_hash = owed(current_user_id)
         # debugger 
         user_payments = (owe_hash.keys + owed_hash.keys).uniq
         # debugger 
@@ -87,13 +87,13 @@ class User < ApplicationRecord
     #### you are owed 
     #  {"May"=>15.0, "June"=>10.0, "mat"=>10.0, "T"=>22.22} owed
     ####
-    def owed(user_id)
+    def owed(current_user_id)
 
         owed_list = {}
         # debugger
         bills = Bill.joins(:bill_splits)
                     .joins(:bill_author)
-                    .where('author_id = ?', user_id)
+                    .where('author_id = ?', current_user_id)
                     .where('recipient_paid = false')
                     .where('paid = false')
 
@@ -123,13 +123,13 @@ class User < ApplicationRecord
  
     ####
 
-    def owe(user_id)
+    def owe(current_user_id)
 
         owe_list = {}
         # debugger
         billsplits = Billsplit
                     .joins(:bill)
-                    .where('recipient_id = ?', user_id)
+                    .where('recipient_id = ?', current_user_id)
                     .where('recipient_paid = false')
                     .where('paid = false')
     
