@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.store = store;
-    // store = configureStore();
+    // // store = configureStore();
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-    // window.createBill = createBill;
+    // // window.createBill = createBill;
     window.fetchBills = fetchBills;
     
     ReactDOM.render(<Root store={store} />, root);

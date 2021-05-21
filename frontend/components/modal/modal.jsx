@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import friendship_container from '../friendship/friendship_container';
+import bill_form_container from'../bill/bill_form_container';
 
 
 function Modal({modal, closeModal}) {
@@ -13,9 +14,9 @@ function Modal({modal, closeModal}) {
     case 'addFriend':
       component = <friendship_container />;
       break;
-    // case 'add-bill':
-    //   component = <bill_form_container />;
-    //   break;
+    case 'addBill':
+      component = <bill_form_container />;
+      break;
     default:
       return null;
   }

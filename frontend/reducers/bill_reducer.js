@@ -16,7 +16,7 @@ const billReducer = (state = initialState, action) => {
       newState.billList = action.bills;
       return newState;
     default:
-      return state;
+      return newState;
   }
 };
 

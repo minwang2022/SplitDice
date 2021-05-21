@@ -24,7 +24,7 @@ const mDTP = dispatch => {
     // clearSearch: () => dispatch(clearSearch()),
     // searchUsers: (query) => dispatch(searchUsers(query))
     // openModal: modal => dispatch(openModal(modal)),
-    closeModal: () => dispatch(closeModal())
+    // openModal: (modal) => dispatch(openModal(modal)),
   };
 };
 

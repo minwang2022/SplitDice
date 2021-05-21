@@ -3,21 +3,22 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions.js';
 import { fetchBills } from '../../util/bill_form_api_util.js';
 
-const mSTP = ({ session, entities: { users }}) => {
+const mSTP = (state) => {
   // debugger 
     return {
-      currentUser: users[session.id]
+      currentUser: state.session.id,
+      bills: state.bills.billList
     };
+};
+  
+const mDTP = dispatch => {
+  // debugger 
+  return {
+    logout: () => dispatch(logout()),
+    fetchBills: ()=> dispatch(fetchBills())
   };
-  
-  const mDTP = dispatch => {
-    // debugger 
-    return {
-      logout: () => dispatch(logout()),
-      fetchBills: ()=> dispatch(fetchBills())
-    };
-  
-  };
-  
-  export default connect(mSTP,mDTP)(Dashboard);
+
+};
+
+export default connect(mSTP,mDTP)(Dashboard);
   

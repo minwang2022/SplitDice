@@ -15,7 +15,7 @@ class Friends extends React.Component {
 
   componentDidMount() {
     this.props.getFriendships(this.props.currentUserId);
-   }
+  };
  
   update(field) {
     return (
@@ -73,7 +73,7 @@ class Friends extends React.Component {
     )
 //// saperate the from and list content later for modal.////
     return (
-      <div>
+      <div className="friend-box">
         <h1>Friends<strong>+Add</strong> </h1>
         <ul>
           {listContent}

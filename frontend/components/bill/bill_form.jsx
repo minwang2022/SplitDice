@@ -14,12 +14,12 @@ class BillForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     };
    
-    // componentDidMount() {
-    //     this.props.
-    // };
+    componentDidMount() {
+        this.props.fetchBills();
+    };
    
     update(field) {
-        debugger 
+        // debugger 
       return (
         event => {
           this.setState({ [field]: event.target.value });
@@ -101,9 +101,6 @@ class BillForm extends React.Component {
     };
 
     
-
-  
-
     render(){
         const InsertTags = () => {
             if (this.state.recipients !== "") {
@@ -173,6 +170,10 @@ class BillForm extends React.Component {
                     </div>
                   
                 </form>
+
+
+
+        
             </div>
         )
     }

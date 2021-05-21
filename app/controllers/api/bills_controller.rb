@@ -11,7 +11,7 @@ class Api::BillsController < ApplicationController
                       author_id: current_user.id,
                       category: bill_params[:category],
                       nums_splits: bill_params[:recipients].length + 1
-                      )
+                    )
       if @bill.save
         # Create billsplits for each recipient_id
         bill_params[:recipients].each do |id|

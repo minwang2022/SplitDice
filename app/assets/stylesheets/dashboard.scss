@@ -5,6 +5,19 @@
     width: 600px;
     height:900px;
 }
+.dashboard-left {
+    display: inline-flex;
+    width: 180px;
+    float: left;
+    margin-right:15px;
+      
+}
+.friend-box {
+    display: inline-block;
+    width: 180px;
+    margin-right: 15px;
+    font-size: 20px;
+}
 .person-icon {
     width:15px;
     height:15px;
@@ -15,16 +28,7 @@
     margin-right: 3px;
 }
 
-.modal-background{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 10;
-}
-  
+
 
 .close-x {
     position: absolute;
@@ -37,14 +41,6 @@
     position: absolute;
     top: 65%;
     left: 30%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
-}
-
-.modal-top {
-    position: absolute;
-    top: 30%;
-    left: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid #ccc;
 }
