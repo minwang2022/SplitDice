@@ -115,17 +115,3 @@ bs_16 = Billsplit.create(bill_id: bill_ten.id, recipient_paid: false, recipient_
 
 
 
-
-[#<Billsplit id: 2, bill_id: 2, recipient_id: 4, splited_bill_amount: 10.0, created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", recipient_paid: false>, 
-#<Billsplit id: 4, bill_id: 3, recipient_id: 4, splited_bill_amount: 11.11, created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", recipient_paid: false>, 
-#<Billsplit id: 7, bill_id: 4, recipient_id: 4, splited_bill_amount: 11.11, created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", recipient_paid: false>, 
-#<Billsplit id: 12, bill_id: 6, recipient_id: 4, splited_bill_amount: 10.0, created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", recipient_paid: false>]
-
-[#<Bill id: 3, amount: 33.33, description: "Breakfast", bill_date: "2021-05-05", author_id: 3, paid: false, category: "food", 
-# created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", nums_splits: 3, note: nil>, 
-#<Bill id: 4, amount: 44.44, description: "Breakfast", bill_date: "2021-05-05", author_id: 3, paid: false, category: "food", 
-# created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", nums_splits: 4, note: nil>, 
-#<Bill id: 6, amount: 30.0, description: "Breakfast", bill_date: "2021-05-05", author_id: 3, paid: false, category: "food", 
-# created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", nums_splits: 3, note: nil>, 
-#<Bill id: 11, amount: 30.0, description: "Dinner", bill_date: "2016-12-01", author_id: 3, paid: false, category: "food", 
-# created_at: "2021-05-20 14:45:46", updated_at: "2021-05-20 14:45:46", nums_splits: 2, note: nil>]
