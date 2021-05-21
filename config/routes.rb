@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:create, :destroy]
     resources :friendships, only: [:create]
-    resource :bills, only: [:create, :index, :destroy, :update] 
+    resources :bills, only: [:create, :index, :show, :destroy, :update]
+    
   end
 
 

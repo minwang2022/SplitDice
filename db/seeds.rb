@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 
-User.create!(
+User.create(
     username: "guest",
     email: "guest@guest.com",
     password: "password",
@@ -45,70 +45,87 @@ may_chi = Friendship.create(user_id: may.id, friend_id: chi.id)
 Bill.destroy_all
 
 # may and june
-bill_one = Bill.create(author_id: may.id, nums_splits: 2, amount:30, category: "food", description:"Dinner", bill_date: '2016-12-01')
+bill_one = Bill.create(author_id: may.id, nums_splits: 2, amount:30, category: "food", description:"Dinner", bill_date: '2021-5-5')
 
 # may and april and david
-bill_two = Bill.create(author_id: may.id, nums_splits: 3, amount:30.00, category: "food", description: "Lunch", bill_date: '2016-12-01')
+bill_two = Bill.create(author_id: may.id, nums_splits: 3, amount:30.00, category: "food", description: "Lunch", bill_date: '2021-5-5')
 
 # june and april and david
-bill_three = Bill.create(author_id: june.id, nums_splits: 3, amount:33.33, category: "food", description: "Breakfast", bill_date: '2016-12-01')
+bill_three = Bill.create(author_id: june.id, nums_splits: 3, amount:33.33, category: "food", description: "Breakfast", bill_date: '2021-5-5')
 
 # june and may and april and david
-bill_four = Bill.create(author_id: june.id, nums_splits: 4, amount:44.44, category: "food", description: "Breakfast", bill_date: '2016-12-01')
+bill_four = Bill.create(author_id: june.id, nums_splits: 4, amount:44.44, category: "food", description: "Breakfast", bill_date: '2021-5-5')
 
 # may and june and april PAID
-bill_five = Bill.create(author_id: may.id, paid: true, nums_splits: 3, amount:21.00, category: "food", description: "Breakfast", bill_date: '2016-12-01')
+bill_five = Bill.create(author_id: may.id, paid: true, nums_splits: 3, amount:21.00, category: "food", description: "Breakfast", bill_date: '2021-5-5')
 
 # june and may and april PARTIAL-PAID
-bill_six = Bill.create(author_id: june.id, paid: false, nums_splits: 3, amount:30.00, category: "food", description: "Breakfast", bill_date: '2016-12-01')
+bill_six = Bill.create(author_id: june.id, paid: false, nums_splits: 3, amount:30.00, category: "food", description: "Breakfast", bill_date: '2021-5-5')
 
 # may and chole
-bill_seven = Bill.create(author_id: may.id, paid: false, nums_splits: 2, amount: 44.44, category: "food", description: "Breakfast", bill_date: '2016-12-01')
+bill_seven = Bill.create(author_id: may.id, paid: false, nums_splits: 2, amount: 44.44, category: "food", description: "Breakfast", bill_date: '2021-5-5')
 
 # kat and may
-bill_eight = Bill.create(author_id: kat.id, paid: false, nums_splits: 2, amount: 50.44, category: "food", description: "Breakfast", bill_date: '2016-12-01')
+bill_eight = Bill.create(author_id: kat.id, paid: false, nums_splits: 2, amount: 50.44, category: "food", description: "Breakfast", bill_date: '2021-5-5')
 
 # bill and may
-bill_nine = Bill.create(author_id: bill.id, paid: false, nums_splits: 2, amount: 60.44, category: "food", description: "Breakfast", bill_date: '2016-12-01')
+bill_nine = Bill.create(author_id: bill.id, paid: false, nums_splits: 2, amount: 60.44, category: "food", description: "Breakfast", bill_date: '2021-5-5')
 
 # david and may
-bill_ten = Bill.create(author_id: david.id, paid: false, nums_splits: 2, amount: 60.44, category: "food", description: "Breakfast", bill_date: '2016-12-01')
+bill_ten = Bill.create(author_id: david.id, paid: false, nums_splits: 2, amount: 60.44, category: "food", description: "Breakfast", bill_date: '2021-5-5')
 
 
-BillSplit.destroy_all
+Billsplit.destroy_all
 
 # may and june
-bs_1 = BillSplit.create(bill_id: bill_one.id, recipient_id: june.id, splited_bill_amount: 15)
+bs_1 = Billsplit.create(bill_id: bill_one.id, recipient_id: june.id, splited_bill_amount: 15)
 
 # may and april and david
-bs_2 = BillSplit.create(bill_id: bill_two.id, recipient_id: april.id, splited_bill_amount: 10)
-bs_3 = BillSplit.create(bill_id: bill_two.id, recipient_id: david.id, splited_bill_amount: 10)
+bs_2 = Billsplit.create(bill_id: bill_two.id, recipient_id: april.id, splited_bill_amount: 10)
+bs_3 = Billsplit.create(bill_id: bill_two.id, recipient_id: david.id, splited_bill_amount: 10)
 
 # june and april and david
-bs_4 = BillSplit.create(bill_id: bill_three.id, recipient_id: april.id, splited_bill_amount: 11.11)
-bs_5 = BillSplit.create(bill_id: bill_three.id, recipient_id: david.id, splited_bill_amount: 11.11)
+bs_4 = Billsplit.create(bill_id: bill_three.id, recipient_id: april.id, splited_bill_amount: 11.11)
+bs_5 = Billsplit.create(bill_id: bill_three.id, recipient_id: david.id, splited_bill_amount: 11.11)
 
 # june and may and april and david
-bs_6 = BillSplit.create(bill_id: bill_four.id, recipient_id: may.id, splited_bill_amount: 11.11)
-bs_7 = BillSplit.create(bill_id: bill_four.id, recipient_id: april.id, splited_bill_amount: 11.11)
-bs_8 = BillSplit.create(bill_id: bill_four.id, recipient_id: david.id, splited_bill_amount: 11.11)
+bs_6 = Billsplit.create(bill_id: bill_four.id, recipient_id: may.id, splited_bill_amount: 11.11)
+bs_7 = Billsplit.create(bill_id: bill_four.id, recipient_id: april.id, splited_bill_amount: 11.11)
+bs_8 = Billsplit.create(bill_id: bill_four.id, recipient_id: david.id, splited_bill_amount: 11.11)
 
 # may and june and april PAID
-bs_9 = BillSplit.create(bill_id: bill_five.id, recipient_paid: true, recipient_id: june.id, splited_bill_amount: 7)
-bs_10 = BillSplit.create(bill_id: bill_five.id, recipient_paid: true, recipient_id: april.id, splited_bill_amount: 7)
+bs_9 = Billsplit.create(bill_id: bill_five.id, recipient_paid: true, recipient_id: june.id, splited_bill_amount: 7)
+bs_10 = Billsplit.create(bill_id: bill_five.id, recipient_paid: true, recipient_id: april.id, splited_bill_amount: 7)
 
 # june and may and april PARTIAL-PAID
-bs_11 = BillSplit.create(bill_id: bill_six.id, recipient_paid: true, recipient_id: june.id, splited_bill_amount: 10)
-bs_12 = BillSplit.create(bill_id: bill_six.id, recipient_paid: false, recipient_id: april.id, splited_bill_amount: 10)
+bs_11 = Billsplit.create(bill_id: bill_six.id, recipient_paid: true, recipient_id: june.id, splited_bill_amount: 10)
+bs_12 = Billsplit.create(bill_id: bill_six.id, recipient_paid: false, recipient_id: april.id, splited_bill_amount: 10)
 
 # may and chole
-bs_13 = BillSplit.create(bill_id: bill_seven.id, recipient_paid: false, recipient_id: chole.id, splited_bill_amount: 22.22)
+bs_13 = Billsplit.create(bill_id: bill_seven.id, recipient_paid: false, recipient_id: chole.id, splited_bill_amount: 22.22)
 
 # kat and may
-bs_14 = BillSplit.create(bill_id: bill_eight.id, recipient_paid: false, recipient_id: may.id, splited_bill_amount: 25.22)
+bs_14 = Billsplit.create(bill_id: bill_eight.id, recipient_paid: false, recipient_id: may.id, splited_bill_amount: 25.22)
 
 # bill and may
-bs_15 = BillSplit.create(bill_id: bill_nine.id, recipient_paid: false, recipient_id: may.id, splited_bill_amount: 30.22)
+bs_15 = Billsplit.create(bill_id: bill_nine.id, recipient_paid: false, recipient_id: may.id, splited_bill_amount: 30.22)
 
 # david and may
-bs_16 = BillSplit.create(bill_id: bill_ten.id, recipient_paid: false, recipient_id: may.id, splited_bill_amount: 30.22)
+bs_16 = Billsplit.create(bill_id: bill_ten.id, recipient_paid: false, recipient_id: may.id, splited_bill_amount: 30.22)
+
+
+
+
+[#<Billsplit id: 2, bill_id: 2, recipient_id: 4, splited_bill_amount: 10.0, created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", recipient_paid: false>, 
+#<Billsplit id: 4, bill_id: 3, recipient_id: 4, splited_bill_amount: 11.11, created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", recipient_paid: false>, 
+#<Billsplit id: 7, bill_id: 4, recipient_id: 4, splited_bill_amount: 11.11, created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", recipient_paid: false>, 
+#<Billsplit id: 12, bill_id: 6, recipient_id: 4, splited_bill_amount: 10.0, created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", recipient_paid: false>]
+
+[#<Bill id: 3, amount: 33.33, description: "Breakfast", bill_date: "2021-05-05", author_id: 3, paid: false, category: "food", 
+# created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", nums_splits: 3, note: nil>, 
+#<Bill id: 4, amount: 44.44, description: "Breakfast", bill_date: "2021-05-05", author_id: 3, paid: false, category: "food", 
+# created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", nums_splits: 4, note: nil>, 
+#<Bill id: 6, amount: 30.0, description: "Breakfast", bill_date: "2021-05-05", author_id: 3, paid: false, category: "food", 
+# created_at: "2021-05-20 02:40:34", updated_at: "2021-05-20 02:40:34", nums_splits: 3, note: nil>, 
+#<Bill id: 11, amount: 30.0, description: "Dinner", bill_date: "2016-12-01", author_id: 3, paid: false, category: "food", 
+# created_at: "2021-05-20 14:45:46", updated_at: "2021-05-20 14:45:46", nums_splits: 2, note: nil>]

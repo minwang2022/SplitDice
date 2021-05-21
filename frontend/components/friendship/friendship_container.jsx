@@ -9,6 +9,7 @@ const mSTP = (state)=> {
   return {
     friends: Object.values(state.entities.friendships),
     currentUserId: state.session.id,
+    formType: 'addFriend'
     // search: Object.value(state.friends.userResult),
     // errors: state.friends.errors
   };
@@ -22,12 +23,8 @@ const mDTP = dispatch => {
     // searchFriends: (query) => dispatch(searchFriends(query)),
     // clearSearch: () => dispatch(clearSearch()),
     // searchUsers: (query) => dispatch(searchUsers(query))
-    otherForm: (
-      <button onClick={() => dispatch(openModal('+ add'))}>
-        + add
-      </button>
-    ),
-    closeModal: ()=> dispatch(closeModal())
+    // openModal: modal => dispatch(openModal(modal)),
+    closeModal: () => dispatch(closeModal())
   };
 };
 

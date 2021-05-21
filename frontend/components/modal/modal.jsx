@@ -8,17 +8,17 @@ function Modal({modal, closeModal}) {
   if (!modal) {
     return null;
   }
-  let component = <friendship_container />;
-  // switch (modal) {
-  //   case 'login':
-  //     component = <friendship_container />;
-  //     break;
-  //   case 'signup':
-  //     component = <SignupFormContainer />;
-  //     break;
-  //   default:
-  //     return null;
-  // }
+  let component;
+  switch (modal) {
+    case 'addFriend':
+      component = <friendship_container />;
+      break;
+    // case 'add-bill':
+    //   component = <bill_form_container />;
+    //   break;
+    default:
+      return null;
+  }
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
@@ -30,7 +30,7 @@ function Modal({modal, closeModal}) {
 
 const mapStateToProps = state => {
   return {
-    modal: state.modal
+    modal: state.ui.modal
   };
 };
 

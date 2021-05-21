@@ -35,19 +35,122 @@ class User < ApplicationRecord
         source: :friend,
         dependent: :destroy
 
-    # has_many :bills,
-    #     foreign_key: :author_id,
-    #     class_name: :Bill
+    has_many :bills,
+        foreign_key: :author_id,
+        class_name: :Bill
         
-    # has_many :requested_bill_splits,
-    #     foreign_key: :recipient_id,
-    #     class_name: :Bill_split
+    has_many :requested_billsplits,
+        foreign_key: :recipient_id,
+        class_name: :Billsplit
 
-    # has_many :received_bills,
-    #     through: :requested_bill_splits,
-    #     source: :Bill
+    has_many :received_bills,
+        through: :requested_billsplits,
+        source: :Bill
     
+    ########Bills Logic########
+
+    def net_payments(user_id)
+        payments_hash = {"owed" => {}, "owe" => {}}
+        
+        owe_hash = owe(user_id)
+        owed_hash = owed(user_id)
+        # debugger 
+        user_payments = (owe_hash.keys + owed_hash.keys).uniq
+        # debugger 
+        user_payments.each do |user|
+            # debugger 
+          # user is in owe_hash and NOT owed_hash
+          if owe_hash.has_key?(user) && !owed_hash.has_key?(user)
+            payments_hash["owe"][user] = owe_hash[user]
+          # user is NOT in owe_hash and in owed_hash
+        #   debugger 
+          elsif !owe_hash.has_key?(user) && owed_hash.has_key?(user)
+            payments_hash["owed"][user] = owed_hash[user]
+          # user is in both owe hash and owed hash
+        #   debugger
+          else
+                amount = (owed_hash[user] - owe_hash[user]).round(2)
+                if amount > 0
+                    # Goes to you are owed
+                    payments_hash["owed"][user] = amount
+        
+                elsif amount < 0
+                    payments_hash["owe"][user] = -amount
+                    # Goes to you owe
+                end
+            end 
+        end
+        # debugger
+        payments_hash
+    end
+
+    #### you are owed 
+    #  {"May"=>15.0, "June"=>10.0, "mat"=>10.0, "T"=>22.22} owed
+    ####
+    def owed(user_id)
+
+        owed_list = {}
+        # debugger
+        bills = Bill.joins(:bill_splits)
+                    .joins(:bill_author)
+                    .where('author_id = ?', user_id)
+                    .where('recipient_paid = false')
+                    .where('paid = false')
+
+        bills.uniq.each do |bill|
+            # debugger
+            
+            bill.bill_splits.each do |split|
+                # debugger
+                recipient_id = split.recipient_id
+                recipient_username = User.find_by(id: recipient_id).username
+                # debugger
+                if owed_list.has_key? recipient_username
+                    temp_amount = owed_list[recipient_username]
+                    owed_list[recipient_username] = temp_amount + split.splited_bill_amount
+                else
+                    owed_list[recipient_username] = split.splited_bill_amount
+                end
+            end
+        end
+        # debugger
+        owed_list
     
+    end
+
+    #### you owe
+    #  {"May"=>15.0, "June"=>10.0, "mat"=>10.0, "T"=>22.22} owed
+ 
+    ####
+
+    def owe(user_id)
+
+        owe_list = {}
+        # debugger
+        billsplits = Billsplit
+                    .joins(:bill)
+                    .where('recipient_id = ?', user_id)
+                    .where('recipient_paid = false')
+                    .where('paid = false')
+    
+        billsplits.each do |bill|
+            # debugger
+            bill_author_id = Bill.find_by(id: bill.bill_id).author_id
+            # debugger
+            bill_author_name = User.find_by(id: bill_author_id).username
+            # debugger
+            if owe_list.has_key? bill_author_name
+                temp_amount = owe_list[bill_author_name]
+                owe_list[bill_author_name] = temp_amount + bill.splited_bill_amount
+        #  debugger
+            else
+                owe_list[bill_author_name] = bill.splited_bill_amount
+            end
+        end
+        # debugger
+        owe_list
+    end
+
     #USER Auth#
 
     

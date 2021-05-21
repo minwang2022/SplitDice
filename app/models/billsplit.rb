@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: bill_splits
+# Table name: billsplits
 #
 #  id                  :bigint(8)        not null, primary key
 #  recipient_paid      :boolean          default(FALSE)
@@ -15,7 +15,7 @@
 #  index_bill_splits_on_bill_id       (bill_id)
 #  index_bill_splits_on_recipient_id  (recipient_id)
 #
-class BillSplit < ApplicationRecord
+class Billsplit < ApplicationRecord
     validates :bill_id, :recipient_id, presence: true
     
 

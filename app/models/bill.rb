@@ -27,14 +27,9 @@ class Bill < ApplicationRecord
     
     has_many :bill_splits,
         foreign_key: :bill_id,
-        class_name: :Bill_split
+        class_name: :Billsplit
     
     has_many :bill_recipients,
-        through: :bill_splits,
+        through: :billsplits,
         source: :recipient
-    
-    
-
-
-
 end

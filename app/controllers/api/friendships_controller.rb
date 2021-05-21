@@ -16,6 +16,7 @@ class Api::FriendshipsController < ApplicationController
     
     end
 
+    
     # def destroy
     #     friendship = Friendship.find(params[:id])
     #     friendship.delete 

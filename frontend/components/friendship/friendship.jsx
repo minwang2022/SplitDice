@@ -11,7 +11,6 @@ class Friends extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.chooseUser = this.chooseUser.bind(this);
   }
 
   componentDidMount() {
@@ -22,7 +21,6 @@ class Friends extends React.Component {
     return (
       event => {
         this.setState({ [field]: event.target.value });
-        // this.props.searchUsers(event.target.value).then(users => { console.log("success");});
       }
     );
   }
@@ -40,32 +38,47 @@ class Friends extends React.Component {
     // this.clearState();
   }
 
-  // chooseUser(e) {
-  //   e.preventDefault();
-  //   const username = e.currentTarget.value;
-  //   this.setState({username: username });
-  //   this.props.clearSearch();
-  // }
-
 
   render() {
 
-    // const searchList = this.props.search.map((el, idx) => {
-    //       return <li key={idx} onClick={this.chooseUser}> {el.username} </li>;
-    //     });
-
     const listContent = this.props.friends.map((friend, idx) => {
-      // debugger 
       return <li key={idx}><div className="person-icon"></div>{friend.username}</li>;
     });
     
+    let addFriendForm = (
+      <div className="modal-child">
+          
+          <form onSubmit={this.handleSubmit} className="modal-form">
+            Add a Friend!
+            <div onClick={this.props.closeModal} className="close-x">X</div>
+              <div className="add-form">
+                <br/>
+                <label className= "input-text">Username:</label>
+                <br/>
+                  <input type="text"
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                    className= "input-box"
+                  />
+                <br/>
+                <div className="add-friend-button-group">
+                  <div className="add-friend-button">
+                    <input className="signup-button" type="submit" value="Add Friend" onClick={this.props.closeModal}></input>
+                  </div>
+                </div>
+              </div>
+            
+          </form>
+      </div>
+    )
+//// saperate the from and list content later for modal.////
     return (
       <div>
-        <h1>Friends</h1>
+        <h1>Friends<strong>+Add</strong> </h1>
         <ul>
           {listContent}
         </ul>
-
+        {addFriendForm}
       </div>
     );
   }

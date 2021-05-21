@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_225846) do
+ActiveRecord::Schema.define(version: 2021_05_19_183838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "bill_splits", force: :cascade do |t|
-    t.integer "bill_id", null: false
-    t.integer "recipient_id", null: false
-    t.float "splited_bill_amount", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "recipient_paid", default: false
-    t.index ["bill_id"], name: "index_bill_splits_on_bill_id"
-    t.index ["recipient_id"], name: "index_bill_splits_on_recipient_id"
-  end
 
   create_table "bills", force: :cascade do |t|
     t.float "amount", null: false
@@ -38,6 +27,17 @@ ActiveRecord::Schema.define(version: 2021_05_17_225846) do
     t.integer "nums_splits"
     t.text "note"
     t.index ["author_id"], name: "index_bills_on_author_id"
+  end
+
+  create_table "billsplits", force: :cascade do |t|
+    t.integer "bill_id", null: false
+    t.integer "recipient_id", null: false
+    t.float "splited_bill_amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "recipient_paid", default: false
+    t.index ["bill_id"], name: "index_billsplits_on_bill_id"
+    t.index ["recipient_id"], name: "index_billsplits_on_recipient_id"
   end
 
   create_table "friendships", force: :cascade do |t|

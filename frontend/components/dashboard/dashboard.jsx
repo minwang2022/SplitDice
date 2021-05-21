@@ -1,5 +1,6 @@
 import React from 'react';
 import FriendsContainer from '../friendship/friendship_container';
+import BillsContainer from '../bill/bill_form_container';
 
 
 class Dashboard extends React.Component {
@@ -9,7 +10,10 @@ class Dashboard extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-
+    // componentWillMount() {
+    //     this.props.fetchBills();
+    // };
+    
     handleClick(e) {
         // debugger 
         e.preventDefault();
@@ -23,10 +27,13 @@ class Dashboard extends React.Component {
             <div>
                 <header >
                     <h1>Dashboard</h1>
+                    <br/>
+                    <div></div>
                 </header>
                 <div className="dashboard-left">
                 <FriendsContainer/>
                 </div>
+                <BillsContainer/>
             </div>
         )};
 }

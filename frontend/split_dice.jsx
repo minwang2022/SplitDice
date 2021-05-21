@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 // import { getFriendships, addFriendship, receiveFriendship, receiveAllFriendships } from './actions/friendship_actions';
-
+import { createBill, fetchBills } from './actions/bill_actions';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
     const root = document.getElementById('root');
@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.store = store;
     // store = configureStore();
-    // window.getState = store.getState;
-    // window.dispatch = store.dispatch;
-    // window.getFriendships = getFriendships;
-    // window.addFriendship = addFriendship;
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
+    // window.createBill = createBill;
+    window.fetchBills = fetchBills;
     
     ReactDOM.render(<Root store={store} />, root);
 });
