@@ -8,15 +8,15 @@ export const createBill = (bills) => (
     })
 );
 
-export const fetchBills = bills => (
+export const fetchBills = () => (
     $.ajax({
         url: '/api/bills',
-        method: 'GET'
+        method: 'GET',
     })
 );
   
   
-export const settleBill = bills => (
+export const settleBill = () => (
     $.ajax({
         url:'/api/bills',
         method: 'PUT',

@@ -10,6 +10,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    if params[:query].present?
+      @friends = User.where('username ~ ? OR username ~ ? OR username ~ ?', params[:query].upcase, params[:query].downcase, params[:query].capitalize)
+    else
+      @friends = User.none
+    end
+    render :friends
+  end
+
   private
 
   def user_params

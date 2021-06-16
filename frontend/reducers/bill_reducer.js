@@ -2,9 +2,7 @@ import { RECEIVE_BILLS, } from '../actions/bill_actions';
 
 
 const initialState = {
-  billList: {"you_owe":{}, "you_are_owed":{}},
-  errors: {},
-
+  billList: {"owe":{}, "owed":{}}
 };
 
 const billReducer = (state = initialState, action) => {
