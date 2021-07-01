@@ -26497,3 +26497,133 @@ Started POST "/__better_errors/92b4547877f5cd7f/variables" for ::1 at 2021-06-30
   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
   [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "may"], ["LIMIT", 1]]
   [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/api/users/2/friendships" for ::1 at 2021-06-30 21:13:41 -0400
+Processing by Api::FriendshipsController#index as JSON
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 401 Unauthorized in 20ms (Views: 0.5ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/api/users/2/friendships" for ::1 at 2021-06-30 21:13:46 -0400
+Processing by Api::FriendshipsController#index as JSON
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/2/friendships" for ::1 at 2021-06-30 21:13:50 -0400
+Processing by Api::FriendshipsController#index as JSON
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Filter chain halted as :require_logged_in rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/__better_errors/92b4547877f5cd7f/variables" for ::1 at 2021-06-30 21:13:53 -0400
+Started POST "/__better_errors/92b4547877f5cd7f/variables" for ::1 at 2021-06-30 21:14:14 -0400
+Started POST "/__better_errors/4efde7afcf0f32b9/variables" for ::1 at 2021-06-30 21:14:14 -0400
+Started GET "/api/users/searchFriends?query=jun" for ::1 at 2021-06-30 21:14:17 -0400
+Processing by Api::UsersController#searchFriends as JSON
+  Parameters: {"query"=>"jun"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `friends' for nil:NilClass:
+  app/controllers/api/users_controller.rb:52:in `searchFriends'
+
+Started POST "/__better_errors/04eb92fec5c14d3d/variables" for ::1 at 2021-06-30 21:14:17 -0400
+Started POST "/__better_errors/04eb92fec5c14d3d/variables" for ::1 at 2021-06-30 21:15:21 -0400
+Started POST "/__better_errors/04eb92fec5c14d3d/variables" for ::1 at 2021-06-30 21:15:27 -0400
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "may"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND "users"."username" = $2[0m  [["user_id", 2], ["username", "m"]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND "users"."username" = $2[0m  [["user_id", 2], ["username", "j"]]
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND "users"."username" = $2[0m  [["user_id", 2], ["username", "fred"]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND "users"."username" = $2[0m  [["user_id", 2], ["username", "f"]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND "users"."username" = $2[0m  [["user_id", 2], ["username", "june"]]
+Started GET "/api/users/searchFriends?query=jun" for ::1 at 2021-06-30 21:34:07 -0400
+Processing by Api::UsersController#searchFriends as JSON
+  Parameters: {"query"=>"jun"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:50
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 10.8ms)
+
+
+
+NoMethodError - undefined method `friends' for nil:NilClass:
+  app/controllers/api/users_controller.rb:52:in `searchFriends'
+
+Started POST "/__better_errors/d9a48a25fa9c4580/variables" for ::1 at 2021-06-30 21:34:07 -0400
+Started GET "/api/users/searchFriends?query=jun" for ::1 at 2021-06-30 21:34:44 -0400
+Processing by Api::UsersController#searchFriends as JSON
+  Parameters: {"query"=>"jun"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:50
+  Rendering api/users/friends.json.jbuilder
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (username ~ 'JUN' OR username ~ 'jun' OR username ~ 'Jun')[0m  [["user_id", 2]]
+  ↳ app/views/api/users/friends.json.jbuilder:1
+  Rendered api/users/friends.json.jbuilder (8.1ms)
+Completed 200 OK in 64ms (Views: 13.9ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/api/users/searchFriends?query=f" for ::1 at 2021-06-30 21:34:51 -0400
+Processing by Api::UsersController#searchFriends as JSON
+  Parameters: {"query"=>"f"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:50
+  Rendering api/users/friends.json.jbuilder
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (username ~ 'F' OR username ~ 'f' OR username ~ 'F')[0m  [["user_id", 2]]
+  ↳ app/views/api/users/friends.json.jbuilder:1
+  Rendered api/users/friends.json.jbuilder (1.9ms)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/users/searchFriends?query=s" for ::1 at 2021-06-30 21:35:00 -0400
+Processing by Api::UsersController#searchFriends as JSON
+  Parameters: {"query"=>"s"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:50
+  Rendering api/users/friends.json.jbuilder
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (username ~ 'S' OR username ~ 's' OR username ~ 'S')[0m  [["user_id", 2]]
+  ↳ app/views/api/users/friends.json.jbuilder:1
+  Rendered api/users/friends.json.jbuilder (2.2ms)
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/users/searchFriends?query=d" for ::1 at 2021-06-30 21:35:07 -0400
+Processing by Api::UsersController#searchFriends as JSON
+  Parameters: {"query"=>"d"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:50
+  Rendering api/users/friends.json.jbuilder
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1 AND (username ~ 'D' OR username ~ 'd' OR username ~ 'D')[0m  [["user_id", 2]]
+  ↳ app/views/api/users/friends.json.jbuilder:1
+  Rendered api/users/friends.json.jbuilder (3.3ms)
+Completed 200 OK in 16ms (Views: 12.1ms | ActiveRecord: 2.2ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "may"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/api/users/showFriends" for ::1 at 2021-06-30 21:38:57 -0400
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"showFriends"}
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (3.7ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/api/users/show.json.jbuilder:1:in `_app_views_api_users_show_json_jbuilder___3123839460330537605_70129359416420'
+
+Started POST "/__better_errors/b0bbdc525ece0bb5/variables" for ::1 at 2021-06-30 21:38:57 -0400
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "may"], ["LIMIT", 1]]

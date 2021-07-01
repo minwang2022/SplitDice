@@ -1,6 +1,6 @@
 import React from 'react';
 import Friends from './friendship';
-import { getFriendships, addFriendship,  } from '../../actions/friendship_actions';
+import { getFriends, addFriend,  } from '../../actions/friendship_actions';
 import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
@@ -18,8 +18,8 @@ const mSTP = (state)=> {
 const mDTP = dispatch => {
   // debugger 
   return {
-    processFriendForm: (userId, friendId) => dispatch(addFriendship(userId, friendId)),
-    getFriendships: (userId) => dispatch(getFriendships(userId)),
+    processFriendForm: (user) => dispatch(addFriend(user)),
+    getFriendships: (userId) => dispatch(getFriends(userId)),
     // searchFriends: (query) => dispatch(searchFriends(query)),
     // clearSearch: () => dispatch(clearSearch()),
     // searchUsers: (query) => dispatch(searchUsers(query))

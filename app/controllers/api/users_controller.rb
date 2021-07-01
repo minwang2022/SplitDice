@@ -10,12 +10,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def showFriends
-    @friends = current_user.friends
-
-    render :friends
-  end
-
   def addFriend
     friend_username = user_params[:username]
     @friend = User.find_by(username: friend_username)
@@ -47,7 +41,7 @@ class Api::UsersController < ApplicationController
   end
 
   def searchFriends
-
+    # current_user = User.find_by(id: 2); ## testing
     if params[:query].present?
       @friends = current_user.friends.where('username ~ ? OR username ~ ? OR username ~ ?', params[:query].upcase, params[:query].downcase, params[:query].capitalize)
     else
