@@ -1,4 +1,4 @@
-import { RECEIVE_FRIEND, RECEIVE_ALL_FRIENDS} from '../actions/friendship_actions';
+import { RECEIVE_FRIEND, RECEIVE_ALL_FRIENDS, RECEIVE_SEARCHED_FRIENDS, CLEAR_SEARCH} from '../actions/friendship_actions';
 
 const friendshipReducer = (state = {}, action) => {
  
@@ -6,7 +6,7 @@ const friendshipReducer = (state = {}, action) => {
     // debugger 
     switch(action.type) {
       case RECEIVE_FRIEND:
-        const newFriendship = {[action.friend.id]: action.friend};
+        const newFriendship = {[action.friendship.id]: action.friendship};
         return Object.assign({}, state, newFriendship);
       case RECEIVE_ALL_FRIENDS:
         return action.friendships;
