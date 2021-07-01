@@ -64,12 +64,12 @@ class BillForm extends React.Component {
     // Adding a bill
     handleSubmit(e) {
       e.preventDefault();
-    //   debugger 
+      debugger 
     //   let recipientIds = convertNamesToIds(this.state.recipients)
         let array = this.state.recipients.split(",");
         let friends = this.props.friends;
         let recipientIdsArray = [];
-        debugger 
+        // debugger 
         let i = 0;
         while (i < array.length) {
             debugger 
@@ -79,7 +79,9 @@ class BillForm extends React.Component {
                 debugger 
                 let friend = friends[j];
                 if (friend.username === recipient) {
-                    recipientIdsArray.push(friend.id);
+                    debugger
+                    recipientIdsArray.push(friend.friendId);
+                    break;
                 }
                 j++
             }
@@ -97,7 +99,8 @@ class BillForm extends React.Component {
         this.props.processBillForm(bill).then(() => 
             this.clearState() 
         )
-       
+        this.setState({recipients: ""});
+        this.props.closeModal();
     };
 
     
@@ -105,26 +108,26 @@ class BillForm extends React.Component {
         const InsertTags = () => {
             if (this.state.recipients !== "") {
                 return (
-                    <div>
+                    <div className="insert-block">
                         <br/>
                         <input 
                             type="text"
                             placeholder="Enter a description"
                             onChange={this.update('description')}
-                            className= "input-box"
+                            className= "modal-input"
                         />
                         <br/>
                         <input 
                             type="number"
                             placeholder="$ 0.00"
                             onChange={this.update('amount')}
-                            className= "input-box"
+                            className= "modal-input"
                         />
                         <br/>
                         <input 
                             type="date"
                             onChange={this.update('bill_date')}
-                            className= "input-box"
+                            className= "modal-input"
                         />
                         <br/>
 
@@ -145,17 +148,17 @@ class BillForm extends React.Component {
         }
         return (
             
-            <div className="form-container" >
+            <div className="add-bill-modal" >
                 
-                <form className="content-block" onSubmit={this.handleSubmit}  >
-                  Add an expense
+                <form className="add-bill-block" onSubmit={this.handleSubmit}  >
+                  <h2>Add an expense</h2>
                     {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
                         <div className="add-form">
                         <br/>
-                        <label className= "input-text">With you and:
+                        <label className= "modal-bill">With you and:
                             <input 
                                 type="text"
-                                placeholder="  Enter names"
+                                placeholder="Enter names separate by colon"
                                 onChange={this.update('recipients')}
                                 className= "box"
                             />
@@ -164,16 +167,11 @@ class BillForm extends React.Component {
                         {InsertTags()}
                         <br/>
 
-                        <button className="signup-button" onClick={this.props.closeModal}>Cancel</button>
-                        &nbsp;&nbsp;
-                        <input className="signup-button" type="submit" value="save" onClick={this.handleSubmit}/>
+                       
+                        <input className="signup-button" type="submit" value="Create Bill"/>
                     </div>
                   
                 </form>
-
-
-
-        
             </div>
         )
     }

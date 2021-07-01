@@ -16,7 +16,7 @@
 #
 class Friendship < ApplicationRecord
     validates :user_id, :friend_id, presence: true
-    validates :user_id, uniqueness: {scope: :friend_id}
+    validates :user_id, uniqueness: {scope: :friend_id, message: "friendship should only exist once"}
 
 
     belongs_to :user,

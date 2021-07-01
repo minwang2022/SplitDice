@@ -27,8 +27,41 @@
     vertical-align: bottom;
     margin-right: 3px;
 }
+.add-bill-modal {
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    color: black;
+    display: block;
+    align-content: center;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 2px;
+    //   margin: 5px;
+}
 
+.add-bill-modal h2{ 
+    display: block;
+    background: #5cc5a7;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #36977b;
+    text-shadow: 0 -1px 0 #318a71;
+    font-size: 18px;
+    font-weight: bold;
 
+}
+  
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(235, 229, 229, 0.7);
+    z-index: 10;
+}
 
 .close-x {
     position: absolute;
@@ -37,10 +70,55 @@
     cursor: pointer;
 }
 
-.modal-child {
+// .modal-child {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     border: 1px solid #ccc;
+//     border-radius: 10px;
+//     width: 500px;
+//     max-width: 80%;
+// }
+.add-bill-block {
     position: absolute;
-    top: 65%;
-    left: 30%;
+    top: 30%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
+    display: block;
+    background: #fff;
+    width: 350px;
+    border: 1px solid rgb(26, 20, 20);
+    box-shadow: 0px 2px 8px #ccc;
+    overflow: hidden;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.modal-input {
+    font-size: 20px;
+    height: 24px;
+    line-height: 24px;
+    margin-top: 1px;
+    margin-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-bottom: 1px dashed #ccc !important;
+    border-radius: 0;
+    padding-bottom: 2px;
+}
+
+.modal-bill {
+    position: relative;
+    padding: 2px;
+    border-bottom: 2px solid rgb(180, 175, 175);
+    padding-left: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+    display: block;
+    font-size: 14px;
+}
+
+.box {
+    width:200px;
 }

@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
     has_many :friendships,
         foreign_key: :user_id,
-        class_name: :User,
+        class_name: :Friendship,
         dependent: :destroy
 
     has_many :friends,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import friendship_container from '../friendship/friendship_container';
-import bill_form_container from'../bill/bill_form_container';
+import Friendship_container from '../friendship/friendship_container';
+import Bill_form_container from'../bill/bill_form_container';
 
 
 function Modal({modal, closeModal}) {
@@ -12,10 +12,10 @@ function Modal({modal, closeModal}) {
   let component;
   switch (modal) {
     case 'addFriend':
-      component = <friendship_container />;
+      component = <Friendship_container />;
       break;
     case 'addBill':
-      component = <bill_form_container />;
+      component = <Bill_form_container />;
       break;
     default:
       return null;
@@ -31,7 +31,7 @@ function Modal({modal, closeModal}) {
 
 const mapStateToProps = state => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal.modal
   };
 };
 

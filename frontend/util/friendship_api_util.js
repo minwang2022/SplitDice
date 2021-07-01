@@ -5,20 +5,20 @@ export const getFriendships = userId => (
     })
 )
 
-export const addFriendship = (userId, friendId) => (
+export const addFriendship = (user) => (
     $.ajax({
         method: 'POST',
-        url: '/api/friendships',
-        data: {friendship: {user_id: userId, friend_id: friendId}}
+        url: '/api/users/addFriend',
+        data: {user}
     })
 )
 
-// export const deleteFriendship = friendshipId => (
-//     $.ajax({
-//         method: 'DELETE',
-//         url: `/api/friendships/${friendshipId}`
-//     })
-// )
+export const deleteFriendship = friendshipId => (
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/friendships/${friendshipId}`
+    })
+)
 
 // export const searchFriends = (query) => (
 //     $.ajax({

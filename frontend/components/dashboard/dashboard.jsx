@@ -1,6 +1,7 @@
 import React from 'react';
 import FriendsContainer from '../friendship/friendship_container';
 import BillsContainer from '../bill/bill_form_container';
+// import Button from "@material-ui/core/Button";
 
 
 class Dashboard extends React.Component {
@@ -70,7 +71,7 @@ class Dashboard extends React.Component {
                     <div>
                         <p>{user}</p>
                         <br/>
-                        <p>you owed <strong>{this.props.bills.owed[user]}</strong></p>
+                        <p>you are owed <strong>{this.props.bills.owed[user]}</strong></p>
                     </div>
                 </li>
             )
@@ -83,10 +84,21 @@ class Dashboard extends React.Component {
                     <div></div>
                 </header>
                 <div className="dashboard-left">
-                <FriendsContainer/>
+                <FriendsContainer/>  
+                <br></br>
                 </div>
-                <BillsContainer/>
-                 
+                {/* <BillsContainer/> */}
+                <div className="button-add-bill">
+                <button
+                    // variant="contained"
+                    onClick={() => {
+                    console.log("on click");
+                    this.props.openModal({ modal: "addBill" });
+                    }}
+                >
+                    Add Bill
+                </button>
+                </div>
                 <section >
                     <h2>Total Balance</h2>
                     <div>${this.state.balance.toFixed(2)}</div>
