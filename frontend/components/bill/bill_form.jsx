@@ -72,14 +72,14 @@ class BillForm extends React.Component {
         // debugger 
         let i = 0;
         while (i < array.length) {
-            debugger 
+            // debugger 
             let recipient = array[i];
             let j = 0;
             while(j < friends.length) {
-                debugger 
+                // debugger 
                 let friend = friends[j];
                 if (friend.username === recipient) {
-                    debugger
+                    // debugger
                     recipientIdsArray.push(friend.friendId);
                     break;
                 }

@@ -4,5 +4,5 @@ import friendshipsReducer from './friendship_reducer';
 
 export default combineReducers({
     users: usersReducer,
-    friendships: friendshipsReducer
+    friends: friendshipsReducer
   });

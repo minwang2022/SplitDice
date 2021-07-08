@@ -7,10 +7,14 @@ class Friends extends React.Component {
     super(props);
     // debugger
     this.state = {
-      username: ""
+      username: "",
+      searchList: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.chooseUser = this.chooseUser.bind(this);
+    this.clearState = this.clearState.bind(this);
+
   }
 
   componentDidMount() {
@@ -21,26 +25,56 @@ class Friends extends React.Component {
     return (
       event => {
         this.setState({ [field]: event.target.value });
+        this.props.searchUsers(event.currentTarget.value).then(users => 
+          this.setState({
+            searchList:  Object.values(users.users)
+            
+            // console.log(this.state.searchList)
+          })
+          
+      );
+
       }
     );
   }
+
 
   clearState() {
     this.setState({username: ""});
   }
 
+  chooseUser(e) {
+    e.preventDefault();
+    const username = e.currentTarget.textContent.replace(/\s/g, '');
+    this.setState({username: username });
+    this.props.clearSearch();
 
+  }
   // Adding a friend submit
   handleSubmit(e) {
     e.preventDefault();
     const user = {username: this.state.username};
-    this.props.processFriendForm()
-    // this.clearState();
+    this.props.processFriendForm(user)
+    //   .then(
+
+    //  ()=> this.clearState()
+    // )
   }
 
 
   render() {
 
+    
+    let searchData;
+    
+      if(!this.state.searchList){
+        searchData = null;
+      } else { 
+        searchData = this.state.searchList.map((el, idx) => {
+            return (<li key={idx} onClick={this.chooseUser}> {el.username} </li>);
+          })
+      }
+    
     const listContent = this.props.friends.map((friend, idx) => {
       return <li key={idx}><div className="person-icon"></div>{friend.username}</li>;
     });
@@ -61,6 +95,9 @@ class Friends extends React.Component {
                     className= "input-box"
                   />
                 <br/>
+                <ul className="add-friend-search">
+                  {searchData}
+                </ul>
                 <div className="add-friend-button-group">
                   <div className="add-friend-button">
                     <input className="signup-button" type="submit" value="Add Friend" onClick={this.props.closeModal}></input>

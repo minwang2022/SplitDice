@@ -10,7 +10,7 @@ import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = state => {
   return {
-    friends: Object.values(state.entities.friendships),
+    friends: Object.values(state.entities.friends),
     currentUserId: state.session.id,
     formType: "addBill"
   };
