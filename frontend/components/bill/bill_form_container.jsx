@@ -1,5 +1,6 @@
 import React from 'react';
 import BillForm from './bill_form.jsx';
+// import { searchFriends,clearSearch } from '../../actions/friendship_actions';
 import { createBill, fetchBills } from '../../actions/bill_actions';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
@@ -20,6 +21,8 @@ const mDTP = dispatch => {
   return {
     processBillForm: (bill) => dispatch(createBill(bill)),
     fetchBills: () => dispatch(fetchBills()),
+    // searchFriends: (query) => dispatch(searchFriends(query)),
+    // clearSearch: () => dispatch(clearSearch()),
     closeModal: () => dispatch(closeModal())
   };
 };

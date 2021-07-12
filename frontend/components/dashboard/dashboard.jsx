@@ -19,6 +19,7 @@ class Dashboard extends React.Component {
    
     componentDidMount() {
         this.props.fetchBills();
+        this.props.getFriendships(this.props.currentUser);
     }
    
     componentDidUpdate(prevProps) {
@@ -55,7 +56,26 @@ class Dashboard extends React.Component {
    
     render() {
         const {bills, currentUser} = this.props; 
-        
+
+        const listContent = this.props.friends.slice()
+        .sort(function (a,b) {
+
+            let nameA = a.username
+            let nameB = b.username
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+    
+            // names must be equal
+            return 0;
+          })
+        .map((friend, idx) => {
+            return <li key={idx}><div className="person-icon"></div>{friend.username}</li>;
+          });
+
         const oweList = Object.keys(this.props.bills.owe).map((user, index) => {
             return (
                 <li key={index}>
@@ -81,24 +101,43 @@ class Dashboard extends React.Component {
                 <header >
                     <h1>Dashboard</h1>
                     <br/>
-                    <div></div>
+                    <button
+            // variant="contained"
+                        onClick={() => {
+                        console.log("on click");
+                        this.props.openModal({ modal: "addFriend" });
+                        }}
+                    >
+                        Add Friend
+                    </button>
+                    
+                    <div className="button-add-bill">
+                        <button
+                    // variant="contained"
+                            onClick={() => {
+                            console.log("on click");
+                            this.props.openModal({ modal: "addBill" });
+                            }}
+                        >
+                            Add Bill
+                        </button>
+                     </div>
+                     <br/>
                 </header>
                 <div className="dashboard-left">
-                <FriendsContainer/>  
+                <div className="friend-box">
+                    <h1>Friends</h1>
+                    <ul>
+                     {listContent}
+                    </ul>
+                   
+                </div>
+                
+                
                 <br></br>
                 </div>
                 {/* <BillsContainer/> */}
-                <div className="button-add-bill">
-                <button
-                    // variant="contained"
-                    onClick={() => {
-                    console.log("on click");
-                    this.props.openModal({ modal: "addBill" });
-                    }}
-                >
-                    Add Bill
-                </button>
-                </div>
+                
                 <section >
                     <h2>Total Balance</h2>
                     <div>${this.state.balance.toFixed(2)}</div>

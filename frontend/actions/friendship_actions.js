@@ -59,7 +59,8 @@ export const getFriends = (userId) => dispatch => (
 );
 
 export const addFriend = (user) => dispatch => (
-    util.addFriend(user).then(
+    util.addFriend(user)
+        .then(
         friend => dispatch(receiveFriend(friend)),
         err => dispatch(receiveErrors(err.responseJSON))
     )

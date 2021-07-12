@@ -24,15 +24,15 @@ class Friends extends React.Component {
   update(field) {
     return (
       event => {
-        this.setState({ [field]: event.target.value });
-        this.props.searchUsers(event.currentTarget.value).then(users => 
-          this.setState({
-            searchList:  Object.values(users.users)
+          this.setState({ [field]: event.target.value });
+          this.props.searchUsers(event.currentTarget.value).then(users => 
+            this.setState({
+              searchList:  Object.values(users.users)
+              
+              // console.log(this.state.searchList)
+            })
             
-            // console.log(this.state.searchList)
-          })
-          
-      );
+        );
 
       }
     );
@@ -54,7 +54,9 @@ class Friends extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = {username: this.state.username};
-    this.props.processFriendForm(user)
+    this.props.processFriendForm(user);
+    this.clearState();
+    this.props.closeModal();
     //   .then(
 
     //  ()=> this.clearState()
@@ -80,14 +82,13 @@ class Friends extends React.Component {
     });
     
     let addFriendForm = (
-      <div className="modal-child">
+      <div className="add-bill-modal">
           
-          <form onSubmit={this.handleSubmit} className="modal-form">
-            Add a Friend!
-            <div onClick={this.props.closeModal} className="close-x">X</div>
+          <form className="add-bill-block" onSubmit={this.handleSubmit} >
+            {/* <h2>Add a Friend!</h2> */}
               <div className="add-form">
                 <br/>
-                <label className= "input-text">Username:</label>
+                <label className= "modal-bill">Username:</label>
                 <br/>
                   <input type="text"
                     value={this.state.username}
@@ -100,7 +101,7 @@ class Friends extends React.Component {
                 </ul>
                 <div className="add-friend-button-group">
                   <div className="add-friend-button">
-                    <input className="signup-button" type="submit" value="Add Friend" onClick={this.props.closeModal}></input>
+                    <input className="signup-button" type="submit" value="Add Friend"></input>
                   </div>
                 </div>
               </div>
@@ -111,10 +112,10 @@ class Friends extends React.Component {
 //// saperate the from and list content later for modal.////
     return (
       <div className="friend-box">
-        <h1>Friends<strong>+Add</strong> </h1>
-        <ul>
+        {/* <h1>Friends<strong>+Add</strong> </h1> */}
+        {/* <ul>
           {listContent}
-        </ul>
+        </ul> */}
         {addFriendForm}
       </div>
     );

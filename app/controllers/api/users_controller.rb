@@ -13,17 +13,26 @@ class Api::UsersController < ApplicationController
   def addFriend
     friend_username = user_params[:username]
     @friend = User.find_by(username: friend_username)
-
+    # debugger 
     if @friend.nil?
+      # debugger
       render json: ['User does not exist!'], status: 401
     elsif @friend.id == current_user.id
+      # debugger
       render json: ['You cannot friend yourself'], status: 401
     else
+      # debugger
       @friendship = Friendship.new(user_id:current_user.id, friend_id: @friend.id)
 
-      if @friendship.save
-        render json: @friend
+      if @friendship.save!
+        # debugger
+        @friends = current_user.friends
+        # @friendships = Friendship.where(user_id: current_user.id)
+
+        render json: @friends
+        # debugger
       else
+        # debugger
         render json: ['Invalid user, user does not exist'], status: 401
       end
     end

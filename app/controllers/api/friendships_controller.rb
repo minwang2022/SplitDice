@@ -18,14 +18,14 @@ class Api::FriendshipsController < ApplicationController
     # end
     
 
-    def destroy
-        friendship = Friendship.find(params[:id])
-        if friendship.delete 
-            render :index
-        else
-            render json ['Invalid user'], status: 401
-        end 
-    end
+    # def destroy
+    #     friendship = Friendship.find(params[:id])
+    #     if friendship.delete 
+    #         render :index
+    #     else
+    #         render json ['Invalid user'], status: 401
+    #     end 
+    # end
 
     private 
 

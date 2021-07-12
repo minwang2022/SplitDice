@@ -1,5 +1,7 @@
 import { RECEIVE_FRIEND, RECEIVE_ALL_FRIENDS, RECEIVE_SEARCHED_FRIENDS, CLEAR_SEARCH, RECEIVE_SEARCHED_USERS} from '../actions/friendship_actions';
 
+
+
 const friendshipReducer = (state = {}, action) => {
   
   Object.freeze(state);
@@ -8,12 +10,11 @@ const friendshipReducer = (state = {}, action) => {
     switch(action.type) {
 
       case RECEIVE_FRIEND:
-        // const newFriendship = {[action.friends.id]: action.friends};
-        // return Object.assign({}, state, newFriendship);
-        newState.friends[action.friend] = action.friend;
-        return newState;
+        // debugger
+        return action.friend;
 
       case RECEIVE_ALL_FRIENDS:
+        // debugger
         return action.friends;
 
       case RECEIVE_SEARCHED_FRIENDS:

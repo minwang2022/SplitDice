@@ -3,7 +3,7 @@ export const getFriends = userId => (
         method: 'GET',
         url: `/api/users/${userId}/friendships`
     })
-)
+);
 
 export const addFriend = (user) => (
     $.ajax({
@@ -11,14 +11,14 @@ export const addFriend = (user) => (
         url: '/api/users/addFriend',
         data: {user}
     })
-)
+);
 
 export const deleteFriend = friendshipId => (
     $.ajax({
         method: 'DELETE',
         url: `/api/friendships/${friendshipId}`
     })
-)
+);
 
 export const searchFriends = (query) => (
     $.ajax({
