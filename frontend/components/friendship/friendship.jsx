@@ -17,9 +17,9 @@ class Friends extends React.Component {
 
   }
 
-  componentDidMount() {
-    this.props.getFriendships(this.props.currentUserId);
-  };
+  // componentDidMount() {
+  //   this.props.getFriendships(this.props.currentUserId);
+  // };
  
   update(field) {
     return (
@@ -68,18 +68,29 @@ class Friends extends React.Component {
 
     
     let searchData;
-    
+    let currentFriends = [];
+    this.props.friends.map(ele => {
+      currentFriends.push(ele.username)
+    });
+    // console.log(currentFriends);
+
       if(!this.state.searchList){
         searchData = null;
       } else { 
         searchData = this.state.searchList.map((el, idx) => {
-            return (<li key={idx} onClick={this.chooseUser}> {el.username} </li>);
+          // console.log(currentFriends);
+          
+          // debugger 
+
+            if(!currentFriends.includes(el.username)) {
+              return (<li key={idx} onClick={this.chooseUser}> {el.username} </li>);
+            }
           })
       }
     
-    const listContent = this.props.friends.map((friend, idx) => {
-      return <li key={idx}><div className="person-icon"></div>{friend.username}</li>;
-    });
+    // const listContent = this.props.friends.map((friend, idx) => {
+    //   return <li key={idx}><div className="person-icon"></div>{friend.username}</li>;
+    // });
     
     let addFriendForm = (
       <div className="add-bill-modal">

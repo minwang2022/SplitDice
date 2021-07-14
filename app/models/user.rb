@@ -151,6 +151,83 @@ class User < ApplicationRecord
         owe_list
     end
 
+    def settle_up(settle_from, settle_to, amount)
+
+        # You are looking for all of the billsplits where the recipient id is payer (settle_from) because those are the ones you want to now fulfill
+        billsplits = Billsplit
+                        .joins(:bill)
+                        .where('author_id = ?', settle_to)
+                        .where('recipient_id = ?', settle_from)
+                        .where('recipient_paid = false')
+    
+    
+        # this actually needs to be calculated from net payments
+        bill_settle_list = []
+    
+    
+        billsplits.each do |split|
+          temp_bill = []
+          amount -= split.split_amount
+          if amount > 0
+            temp_bill.push(split.id)
+            temp_bill.push(true)
+            temp_bill.push(0)
+            bill_settle_list.push(temp_bill)
+    
+          elsif amount < 0  # if settle up amount is less than a single billsplit amount
+            temp_bill.push(split.id)
+            temp_bill.push(false)
+            temp_bill.push(-amount.round(2)) # settle_from user now still owes settle_to user by negative amount
+            bill_settle_list.push(temp_bill)
+            break # Do not continue going through billsplits
+    
+          else
+            temp_bill.push(split.id)
+            temp_bill.push(true)
+            temp_bill.push(0)
+            bill_settle_list.push(temp_bill)
+            break # Do not continue going through billsplits
+    
+          end
+        end
+    
+        # If after going through all of the billsplits amount > 0, then an overpayment has been made
+        # and a new bill/billsplit needs to be created in the opposite direction.
+        if amount > 0
+          temp_bill = []
+          temp_bill.push("new")
+          temp_bill.push(false)
+          temp_bill.push(amount.round(2))
+          bill_settle_list.push(temp_bill)
+        end
+    
+        bill_settle_list
+    
+    end
+
+    def bill_paid
+        bill_ids_to_update = []
+        bills = Bill.includes(:bill_splits)
+
+        bill_paid = true
+        bills.each do |bill|
+            bill.bill_splits.each do |split|
+            bill_paid = bill_paid && split.recipient_paid
+            end
+
+            if bill_paid
+            bill_ids_to_update.push(bill.id)
+            end
+
+            # Reset bill_paid back to true for when you go through first billsplit that has a false recipient_paid
+            bill_paid = true
+        end
+
+        bill_ids_to_update
+
+    end
+    
+
     #USER Auth#
 
     

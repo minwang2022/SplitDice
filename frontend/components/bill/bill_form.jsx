@@ -15,9 +15,9 @@ class BillForm extends React.Component {
         this.clearState = this.clearState.bind(this);
     };
    
-    componentDidMount() {
-        this.props.fetchBills();
-    };
+    // componentDidMount() {
+    //     this.props.fetchBills();
+    // };
    
     update(field) {
         // debugger 

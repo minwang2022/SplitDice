@@ -101,32 +101,30 @@ class Dashboard extends React.Component {
                 <header >
                     <h1>Dashboard</h1>
                     <br/>
-                    <button
-            // variant="contained"
-                        onClick={() => {
-                        console.log("on click");
-                        this.props.openModal({ modal: "addFriend" });
-                        }}
-                    >
-                        Add Friend
-                    </button>
+                    <ul>
+                        <li>
+                            <button onClick={() => {this.props.openModal({ modal: "addFriend" });}}>
+                                Add Friend
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => {this.props.openModal({ modal: "addBill" });}}>
+                                Add Bill
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => {this.props.openModal({ modal: "settle" });}}>
+                                Settle Up
+                            </button>
+                        </li>
+                    </ul>
                     
-                    <div className="button-add-bill">
-                        <button
-                    // variant="contained"
-                            onClick={() => {
-                            console.log("on click");
-                            this.props.openModal({ modal: "addBill" });
-                            }}
-                        >
-                            Add Bill
-                        </button>
-                     </div>
+                     
                      <br/>
                 </header>
                 <div className="dashboard-left">
                 <div className="friend-box">
-                    <h1>Friends</h1>
+                    <h2>Friends</h2>
                     <ul>
                      {listContent}
                     </ul>

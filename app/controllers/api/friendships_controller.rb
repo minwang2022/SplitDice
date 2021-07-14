@@ -6,26 +6,7 @@ class Api::FriendshipsController < ApplicationController
         render :index
     end
 
-    # def create 
-    #     @friendship = Friendship.new(friendship_params)
-    #     @friend = User.find_by(username: )
-    #     if @friendship.save 
-    #         render json: @friend 
-    #     else
-    #         render json: ['Invalid user'], status: 401
-    #     end
-    
-    # end
-    
-
-    # def destroy
-    #     friendship = Friendship.find(params[:id])
-    #     if friendship.delete 
-    #         render :index
-    #     else
-    #         render json ['Invalid user'], status: 401
-    #     end 
-    # end
+  
 
     private 
 
