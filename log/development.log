@@ -55745,3 +55745,158 @@ Processing by Api::UsersController#searchUsers as JSON
 Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/api/users/searchUsers?query=s" for ::1 at 2021-07-14 16:35:46 -0400
+Processing by Api::UsersController#searchUsers as JSON
+  Parameters: {"query"=>"s"}
+  Rendering api/users/friends.json.jbuilder
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username ~ 'S' OR username ~ 's' OR username ~ 'S')[0m
+  ↳ app/views/api/users/friends.json.jbuilder:1
+  Rendered api/users/friends.json.jbuilder (72.6ms)
+Completed 200 OK in 144ms (Views: 49.9ms | ActiveRecord: 35.7ms)
+
+
+Started GET "/api/users/searchUsers?query=" for ::1 at 2021-07-14 16:35:48 -0400
+Processing by Api::UsersController#searchUsers as JSON
+  Parameters: {"query"=>""}
+  Rendering api/users/friends.json.jbuilder
+  Rendered api/users/friends.json.jbuilder (2.0ms)
+Completed 200 OK in 28ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/users/searchUsers?query=a" for ::1 at 2021-07-14 16:35:48 -0400
+Processing by Api::UsersController#searchUsers as JSON
+  Parameters: {"query"=>"a"}
+  Rendering api/users/friends.json.jbuilder
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username ~ 'A' OR username ~ 'a' OR username ~ 'A')[0m
+  ↳ app/views/api/users/friends.json.jbuilder:1
+  Rendered api/users/friends.json.jbuilder (9.0ms)
+Completed 200 OK in 26ms (Views: 19.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users/searchUsers?query=" for ::1 at 2021-07-14 16:35:49 -0400
+Processing by Api::UsersController#searchUsers as JSON
+  Parameters: {"query"=>""}
+  Rendering api/users/friends.json.jbuilder
+  Rendered api/users/friends.json.jbuilder (0.8ms)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/users/searchUsers?query=f" for ::1 at 2021-07-14 16:35:49 -0400
+Processing by Api::UsersController#searchUsers as JSON
+  Parameters: {"query"=>"f"}
+  Rendering api/users/friends.json.jbuilder
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username ~ 'F' OR username ~ 'f' OR username ~ 'F')[0m
+  ↳ app/views/api/users/friends.json.jbuilder:1
+  Rendered api/users/friends.json.jbuilder (7.9ms)
+Completed 200 OK in 22ms (Views: 17.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/users/searchUsers?query=" for ::1 at 2021-07-14 16:35:50 -0400
+Processing by Api::UsersController#searchUsers as JSON
+  Parameters: {"query"=>""}
+  Rendering api/users/friends.json.jbuilder
+  Rendered api/users/friends.json.jbuilder (0.9ms)
+Completed 200 OK in 18ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/users/searchUsers?query=k" for ::1 at 2021-07-14 16:35:56 -0400
+Processing by Api::UsersController#searchUsers as JSON
+  Parameters: {"query"=>"k"}
+  Rendering api/users/friends.json.jbuilder
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username ~ 'K' OR username ~ 'k' OR username ~ 'K')[0m
+  ↳ app/views/api/users/friends.json.jbuilder:1
+  Rendered api/users/friends.json.jbuilder (7.5ms)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-07-15 10:09:13 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "mZ_8jWkU9eHAAC0vrKPBlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/home.html.erb within layouts/application (235.2ms)
+Completed 200 OK in 1025ms (Views: 937.7ms | ActiveRecord: 56.7ms)
+
+
+Started GET "/api/bills" for ::1 at 2021-07-15 10:09:15 -0400
+Started GET "/api/users/3/friendships" for ::1 at 2021-07-15 10:09:15 -0400
+Processing by Api::FriendshipsController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "mZ_8jWkU9eHAAC0vrKPBlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/friendships/index.json.jbuilder
+Processing by Api::BillsController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "mZ_8jWkU9eHAAC0vrKPBlg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mFriendship Load (89.4ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/api/friendships/index.json.jbuilder:1
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/api/friendships/index.json.jbuilder:6
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/friendships/index.json.jbuilder:6
+  Rendered api/friendships/index.json.jbuilder (149.8ms)
+Completed 200 OK in 204ms (Views: 77.0ms | ActiveRecord: 100.6ms)
+
+
+  [1m[36mBillsplit Load (38.2ms)[0m  [1m[34mSELECT "billsplits".* FROM "billsplits" INNER JOIN "bills" ON "bills"."id" = "billsplits"."bill_id" WHERE (recipient_id = 3) AND (recipient_paid = false) AND (paid = false)[0m
+  ↳ app/models/user.rb:136
+  [1m[36mBill Load (0.7ms)[0m  [1m[34mSELECT  "bills".* FROM "bills" WHERE "bills"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:138
+  [1m[36mUser Load (14.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:140
+  [1m[36mBill Load (1.8ms)[0m  [1m[34mSELECT  "bills".* FROM "bills" WHERE "bills"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/user.rb:138
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:140
+  [1m[36mBill Load (42.3ms)[0m  [1m[34mSELECT  "bills".* FROM "bills" WHERE "bills"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/models/user.rb:138
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:140
+  [1m[36mBill Load (49.3ms)[0m  [1m[34mSELECT  "bills".* FROM "bills" WHERE "bills"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/models/user.rb:138
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:140
+  [1m[36mBill Load (7.9ms)[0m  [1m[34mSELECT "bills".* FROM "bills" INNER JOIN "billsplits" ON "billsplits"."bill_id" = "bills"."id" INNER JOIN "users" ON "users"."id" = "bills"."author_id" WHERE (author_id = 3) AND (recipient_paid = false) AND (paid = false)[0m
+  ↳ app/models/user.rb:100
+  [1m[36mBillsplit Load (1.5ms)[0m  [1m[34mSELECT "billsplits".* FROM "billsplits" WHERE "billsplits"."bill_id" = $1[0m  [["bill_id", 3]]
+  ↳ app/models/user.rb:103
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mBillsplit Load (1.3ms)[0m  [1m[34mSELECT "billsplits".* FROM "billsplits" WHERE "billsplits"."bill_id" = $1[0m  [["bill_id", 4]]
+  ↳ app/models/user.rb:103
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mBillsplit Load (0.9ms)[0m  [1m[34mSELECT "billsplits".* FROM "billsplits" WHERE "billsplits"."bill_id" = $1[0m  [["bill_id", 6]]
+  ↳ app/models/user.rb:103
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mBillsplit Load (5.4ms)[0m  [1m[34mSELECT "billsplits".* FROM "billsplits" WHERE "billsplits"."bill_id" = $1[0m  [["bill_id", 11]]
+  ↳ app/models/user.rb:103
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mBillsplit Load (2.1ms)[0m  [1m[34mSELECT "billsplits".* FROM "billsplits" WHERE "billsplits"."bill_id" = $1[0m  [["bill_id", 12]]
+  ↳ app/models/user.rb:103
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mBillsplit Load (0.4ms)[0m  [1m[34mSELECT "billsplits".* FROM "billsplits" WHERE "billsplits"."bill_id" = $1[0m  [["bill_id", 36]]
+  ↳ app/models/user.rb:103
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mBillsplit Load (2.7ms)[0m  [1m[34mSELECT "billsplits".* FROM "billsplits" WHERE "billsplits"."bill_id" = $1[0m  [["bill_id", 37]]
+  ↳ app/models/user.rb:103
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/user.rb:106
+Completed 200 OK in 506ms (Views: 0.4ms | ActiveRecord: 244.6ms)
+
+

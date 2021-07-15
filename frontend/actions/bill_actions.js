@@ -40,9 +40,9 @@ export const fetchBills = () => (dispatch) => {
   );
 };
 
-// export const settleBill = (bill) => (dispatch) => {
-//   return util.settleBill(bill).then(
-//     (bills) => dispatch(receiveBills(bills)),
-//     (err) => dispatch(receiveErrors(err.responseJSON))
-//   );
-// };
+export const settleBill = (bill) => (dispatch) => {
+  return util.settleBill(bill).then(
+    (bills) => dispatch(receiveBills(bills)),
+    (err) => dispatch(receiveErrors(err.responseJSON))
+  );
+};

@@ -135,7 +135,7 @@ class Api::BillsController < ApplicationController
     private
   
     def bill_params
-      params.require(:bills).permit(:amount, {:recipients => []}, :description, :bill_date, :category)
+      params.require(:bills).permit(:amount, {:recipients => []}, :description, :bill_date, :category, :settleFrom, :settleTo)
     end
   
   end
