@@ -16,7 +16,7 @@ export const fetchBills = () => (
 );
   
   
-export const settleBill = () => (
+export const settleBill = bills => (
     $.ajax({
         url:'/api/bills',
         method: 'PUT',

@@ -50,7 +50,6 @@ class SettleForm extends React.Component {
       () => {
         // Put like a friend added box or something?
         // this.closeModal();
-        this.closeModalAction();
         this.props.clearSearch();
         this.clearState();
       }, err => {
@@ -129,6 +128,7 @@ class SettleForm extends React.Component {
   render() {
 
     const settleFromList = this.props.friends.map((user, idx) => {
+      debugger 
       return <li key={idx} onClick={this.chooseSettleFrom}>{user.username}</li>;
     });
 
@@ -137,6 +137,7 @@ class SettleForm extends React.Component {
     )
 
     const settleToList = this.props.friends.map((user, idx) => {
+      debugger
       return <li key={idx} onClick={this.chooseSettleTo}>{user.username}</li>;
     });
 
@@ -154,7 +155,7 @@ class SettleForm extends React.Component {
                   <div className= "modal-bill">
                     <input
                       type="text"
-                      value={this.state.settleFrom}
+                      // value={this.state.settleFrom}
                       placeholder="Enter Payer"
                       onClick ={() => this.handleClick("settleFrom")}
                     />
@@ -164,7 +165,7 @@ class SettleForm extends React.Component {
 
                     <input
                       type="text"
-                      value={this.state.settleTo}
+                      // value={this.state.settleTo}
                       placeholder="Enter Recipient"
                       onClick = {() => this.handleClick("settleTo")}
                     />
@@ -188,8 +189,6 @@ class SettleForm extends React.Component {
                 </div>
 
               </form>
-            </fieldset>
-          </div>
           <br/>
 
 
@@ -220,7 +219,6 @@ class SettleForm extends React.Component {
 
 
 
-        </Modal>
       </div>
     );
 

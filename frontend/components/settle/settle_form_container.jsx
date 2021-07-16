@@ -10,7 +10,7 @@ import { selectAllFriends } from '../../reducers/selectors.js';
 const mSTP = state => {
   return {
     // search: selectAllFriends(state.friends.userResult),
-    currentUser: state.session.currentUser,
+    currentUser: state.entities.users,
     friends: Object.values(state.entities.friends)
   };
 };
