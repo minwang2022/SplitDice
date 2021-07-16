@@ -127,9 +127,8 @@ class SettleForm extends React.Component {
   }
 
   render() {
-    const friendArray = values(this.props.friends);
 
-    const settleFromList = friendArray.map((user, idx) => {
+    const settleFromList = this.props.friends.map((user, idx) => {
       return <li key={idx} onClick={this.chooseSettleFrom}>{user.username}</li>;
     });
 
@@ -137,7 +136,7 @@ class SettleForm extends React.Component {
       <li key={Object.keys(this.props.friends).length} onClick={this.chooseSettleFrom}>{this.props.currentUser.username}</li>
     )
 
-    const settleToList = friendArray.map((user, idx) => {
+    const settleToList = this.props.friends.map((user, idx) => {
       return <li key={idx} onClick={this.chooseSettleTo}>{user.username}</li>;
     });
 
@@ -147,18 +146,12 @@ class SettleForm extends React.Component {
 
     let formContent;
     formContent = (
-      <div>
+      <div className="add-bill-modal">
+              <form className="add-bill-block" onSubmit={this.handleSubmit}>
 
-        <Modal isOpen={this.props.isModalOpen} contentLabel="Modal" className="settle-modal group" overlayClassName="modal-overlay">
+                <div className="add-form">
 
-          <div className="main-settle-modal">
-            <h1>Settle Up <div onClick={this.closeModalAction}>x</div></h1>
-            <fieldset className="settle-up-form">
-              <form onSubmit={this.handleSubmit}>
-
-                <div className="settle-info">
-
-                  <div className="settle-payment">
+                  <div className= "modal-bill">
                     <input
                       type="text"
                       value={this.state.settleFrom}
