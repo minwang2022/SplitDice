@@ -127,11 +127,6 @@ class Api::BillsController < ApplicationController
   
     end
   
-
-    def destroy
-  
-    end
-  
     private
   
     def bill_params

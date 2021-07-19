@@ -81,13 +81,13 @@ class SettleForm extends React.Component {
   // return the id of the user
   findId(username) {
     if(username ==="You") {
-      return this.props.currentUser.id
+      return this.props.currentUserId
     } else {
       const friends = this.props.friends;
-      for(var user_key in friends) {
+      for(let user_key in friends) {
         let user = friends[user_key];
         if(user.username === username) {
-          return user.id;
+          return user.friendId;
         }
       }
     }
@@ -95,11 +95,12 @@ class SettleForm extends React.Component {
 
 
   chooseSettleFrom(e) {
+    const currentUserName = this.props.currentUser[this.props.currentUserId].username;
 
     e.preventDefault();
     const username = e.currentTarget.textContent.replace(/\s/g, '');
-
-    if(username === this.props.currentUser.username) {
+    // debugger
+    if(username === currentUserName) {
       this.setState({settleFrom: 'You'});
     } else {
 
@@ -111,38 +112,45 @@ class SettleForm extends React.Component {
   }
 
   chooseSettleTo(e) {
+    // debugger 
+    const currentUserName = this.props.currentUser[this.props.currentUserId].username;
+
     e.preventDefault();
     const username = e.currentTarget.textContent.replace(/\s/g, '');
 
-    if(username === this.props.currentUser.username) {
+    if(username === currentUserName) {
       this.setState({settleTo: 'You'});
     } else {
 
       this.setState({settleTo: username});
     }
-
+    // debugger
     this.setState({whichSearch:""});
 
   }
 
   render() {
-
-    const settleFromList = this.props.friends.map((user, idx) => {
-      debugger 
+    const {currentUserId, friends} = this.props;
+    // console.log(`currentUserId is ${currentUserId}`);
+    // console.log(this.props.currentUser[currentUserId]);
+    // console.log(this.props.currentUser[currentUserId].username);
+    const currentUserName = this.props.currentUser[currentUserId].username;
+    const settleFromList = friends.map((user, idx) => {
+      // debugger 
       return <li key={idx} onClick={this.chooseSettleFrom}>{user.username}</li>;
     });
 
     settleFromList.unshift(
-      <li key={Object.keys(this.props.friends).length} onClick={this.chooseSettleFrom}>{this.props.currentUser.username}</li>
+      <li key={Object.keys(friends).length} onClick={this.chooseSettleFrom}>{currentUserName}</li>
     )
 
-    const settleToList = this.props.friends.map((user, idx) => {
-      debugger
+    const settleToList = friends.map((user, idx) => {
+      // debugger
       return <li key={idx} onClick={this.chooseSettleTo}>{user.username}</li>;
     });
 
     settleToList.unshift(
-      <li key={Object.keys(this.props.friends).length} onClick={this.chooseSettleTo}>{this.props.currentUser.username}</li>
+      <li key={Object.keys(friends).length} onClick={this.chooseSettleTo}>{currentUserName}</li>
     )
 
     let formContent;
@@ -155,7 +163,7 @@ class SettleForm extends React.Component {
                   <div className= "modal-bill">
                     <input
                       type="text"
-                      // value={this.state.settleFrom}
+                      defaultValue={this.state.settleFrom}
                       placeholder="Enter Payer"
                       onClick ={() => this.handleClick("settleFrom")}
                     />
@@ -165,7 +173,7 @@ class SettleForm extends React.Component {
 
                     <input
                       type="text"
-                      // value={this.state.settleTo}
+                      defaultValue={this.state.settleTo}
                       placeholder="Enter Recipient"
                       onClick = {() => this.handleClick("settleTo")}
                     />
@@ -180,14 +188,9 @@ class SettleForm extends React.Component {
                 </div>
 
               <br/>
-
-                <div className="settle-button-group">
                   <div className="add-friend-button">
                     <input type="submit" value="Save"></input>
                   </div>
-                  <button className="close-modal-button" onClick={this.closeModalAction}>Close</button>
-                </div>
-
               </form>
           <br/>
 

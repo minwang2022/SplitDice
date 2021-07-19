@@ -11,6 +11,7 @@ const mSTP = state => {
   return {
     // search: selectAllFriends(state.friends.userResult),
     currentUser: state.entities.users,
+    currentUserId: state.session.id,
     friends: Object.values(state.entities.friends)
   };
 };
