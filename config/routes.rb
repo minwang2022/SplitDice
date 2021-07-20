@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:create, :destroy]
     resources :friendships, only: [:create]
-    resources :bills, only: [:create, :index, :show, :destroy, :update]
+    resources :bills, only: [:create, :index, :update, :show, :destroy]
     
   end
 

@@ -2,7 +2,7 @@ import * as util from '../util/bill_form_api_util';
 
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const RECEIVE_BILLS = "RECEIVE_BILLS";
-export const REMOVE_BILLS = "REMOVE_BILLS";
+export const REMOVE_ERRORS = "REMOVE_ERRORS";
 
 
 export const receiveErrors = errors => {
@@ -13,7 +13,7 @@ export const receiveErrors = errors => {
 };
 export const removeErrors = ()=> {
   return {
-    type: REMOVE_BILLS,
+    type: REMOVE_ERRORS,
   };
 };
 
@@ -41,6 +41,7 @@ export const fetchBills = () => (dispatch) => {
 };
 
 export const settleBill = (bill) => (dispatch) => {
+  debugger 
   return util.settleBill(bill).then(
     (bills) => dispatch(receiveBills(bills)),
     (err) => dispatch(receiveErrors(err.responseJSON))

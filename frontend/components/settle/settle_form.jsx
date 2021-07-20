@@ -17,18 +17,6 @@ class SettleForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
- 
-  updateAndQuery(input_type) {
-    return (
-      event => {
-        this.setState({ [input_type]: event.target.value });
-        this.setState({ whichSearch: input_type});
-        this.props.searchFriends(event.target.value).then(users => { console.log("success");});
-      }
-    );
-
-  }
-
   update(input_type) {
     return (
       event => {
@@ -45,34 +33,37 @@ class SettleForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const settleUpData = {settleFrom: this.findId(this.state.settleFrom), settleTo: this.findId(this.state.settleTo), amount: this.state.amount};
-
+    debugger 
     this.props.settleBill(settleUpData).then(
+      
       () => {
         // Put like a friend added box or something?
-        // this.closeModal();
+        this.props.closeModal();
         this.props.clearSearch();
         this.clearState();
       }, err => {
-        // this.closeModal();
         this.props.clearSearch();
         this.clearState();
 
       }
     );
-
+      debugger 
   }
 
   // Settle from Click
 
   handleClick(arg) {
     event.preventDefault();
-
+    debugger
     if (arg === "settleFrom") {
+      debugger
       this.setState({whichSearch: "settleFrom"});
 
     } else if(arg === "settleTo") {
+      debugger
       this.setState({whichSearch:"settleTo"});
     } else {
+      debugger
       this.setState({whichSearch: ""});
     }
 
@@ -80,13 +71,17 @@ class SettleForm extends React.Component {
 
   // return the id of the user
   findId(username) {
+    debugger
     if(username ==="You") {
       return this.props.currentUserId
     } else {
       const friends = this.props.friends;
+      debugger
       for(let user_key in friends) {
+        debugger
         let user = friends[user_key];
         if(user.username === username) {
+          debugger
           return user.friendId;
         }
       }
@@ -112,7 +107,7 @@ class SettleForm extends React.Component {
   }
 
   chooseSettleTo(e) {
-    // debugger 
+    debugger 
     const currentUserName = this.props.currentUser[this.props.currentUserId].username;
 
     e.preventDefault();
@@ -124,7 +119,7 @@ class SettleForm extends React.Component {
 
       this.setState({settleTo: username});
     }
-    // debugger
+    debugger
     this.setState({whichSearch:""});
 
   }
@@ -136,7 +131,7 @@ class SettleForm extends React.Component {
     // console.log(this.props.currentUser[currentUserId].username);
     const currentUserName = this.props.currentUser[currentUserId].username;
     const settleFromList = friends.map((user, idx) => {
-      // debugger 
+      debugger 
       return <li key={idx} onClick={this.chooseSettleFrom}>{user.username}</li>;
     });
 
@@ -145,7 +140,7 @@ class SettleForm extends React.Component {
     )
 
     const settleToList = friends.map((user, idx) => {
-      // debugger
+      debugger
       return <li key={idx} onClick={this.chooseSettleTo}>{user.username}</li>;
     });
 
@@ -166,6 +161,8 @@ class SettleForm extends React.Component {
                       defaultValue={this.state.settleFrom}
                       placeholder="Enter Payer"
                       onClick ={() => this.handleClick("settleFrom")}
+                      className= "input-box"
+
                     />
 
                     <div>Paid</div>
@@ -176,6 +173,8 @@ class SettleForm extends React.Component {
                       defaultValue={this.state.settleTo}
                       placeholder="Enter Recipient"
                       onClick = {() => this.handleClick("settleTo")}
+                      className= "input-box"
+
                     />
                 </div>
 
@@ -184,12 +183,14 @@ class SettleForm extends React.Component {
                     value={this.state.amount}
                     placeholder="$0.00"
                     onChange = {this.update('amount')}
+                    className= "input-box"
+
                   />
                 </div>
 
               <br/>
                   <div className="add-friend-button">
-                    <input type="submit" value="Save"></input>
+                    <input className="signup-button" type="submit" value="Save"></input>
                   </div>
               </form>
           <br/>

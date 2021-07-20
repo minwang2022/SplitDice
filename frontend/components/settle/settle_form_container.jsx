@@ -2,17 +2,15 @@ import SettleForm from './settle_form.jsx';
 import { searchFriends, clearSearch } from '../../actions/friendship_actions.js';
 import { settleBill } from '../../actions/bill_actions.js';
 import { connect } from 'react-redux';
-import { selectAllFriends } from '../../reducers/selectors.js';
+import { closeModal } from '../../actions/modal_actions';
 
-// make sure bills container is listening to the right pieces of state
-// the bills reducer will now have friend actions and bill actions.
 
 const mSTP = state => {
   return {
-    // search: selectAllFriends(state.friends.userResult),
     currentUser: state.entities.users,
     currentUserId: state.session.id,
-    friends: Object.values(state.entities.friends)
+    friends: Object.values(state.entities.friends),
+    formType: 'settle'
   };
 };
 
@@ -20,6 +18,7 @@ const mDTP = dispatch => {
   return {
     settleBill: (bill) => dispatch(settleBill(bill)),
     searchFriends: (query) => dispatch(searchFriends(query)),
+    closeModal: () => dispatch(closeModal()),
     clearSearch: () => dispatch(clearSearch())
   };
 };

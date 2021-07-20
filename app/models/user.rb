@@ -152,7 +152,7 @@ class User < ApplicationRecord
     end
 
     def settle_up(settle_from, settle_to, amount)
-
+        debugger
         # You are looking for all of the billsplits where the recipient id is payer (settle_from) because those are the ones you want to now fulfill
         billsplits = Billsplit
                         .joins(:bill)
@@ -166,28 +166,31 @@ class User < ApplicationRecord
     
     
         billsplits.each do |split|
+            debugger
           temp_bill = []
-          amount -= split.split_amount
+          amount -= split.splited_bill_amount
           if amount > 0
+            debugger
             temp_bill.push(split.id)
             temp_bill.push(true)
             temp_bill.push(0)
             bill_settle_list.push(temp_bill)
     
           elsif amount < 0  # if settle up amount is less than a single billsplit amount
+            debugger
             temp_bill.push(split.id)
             temp_bill.push(false)
             temp_bill.push(-amount.round(2)) # settle_from user now still owes settle_to user by negative amount
             bill_settle_list.push(temp_bill)
             break # Do not continue going through billsplits
-    
+            debugger
           else
             temp_bill.push(split.id)
             temp_bill.push(true)
             temp_bill.push(0)
             bill_settle_list.push(temp_bill)
             break # Do not continue going through billsplits
-    
+            debugger
           end
         end
     
@@ -200,29 +203,32 @@ class User < ApplicationRecord
           temp_bill.push(amount.round(2))
           bill_settle_list.push(temp_bill)
         end
-    
+        debugger
         bill_settle_list
     
     end
 
     def bill_paid
+        debugger
         bill_ids_to_update = []
         bills = Bill.includes(:bill_splits)
-
+        debugger
         bill_paid = true
         bills.each do |bill|
+            debugger
             bill.bill_splits.each do |split|
             bill_paid = bill_paid && split.recipient_paid
             end
-
+            debugger
             if bill_paid
+                debugger
             bill_ids_to_update.push(bill.id)
             end
-
+            debugger
             # Reset bill_paid back to true for when you go through first billsplit that has a false recipient_paid
             bill_paid = true
         end
-
+        debugger
         bill_ids_to_update
 
     end

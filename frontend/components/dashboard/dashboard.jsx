@@ -1,6 +1,7 @@
 import React from 'react';
 import FriendsContainer from '../friendship/friendship_container';
 import BillsContainer from '../bill/bill_form_container';
+import SettleContainer from '../settle/settle_form_container';
 // import Button from "@material-ui/core/Button";
 
 
