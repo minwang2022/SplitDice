@@ -37,15 +37,15 @@ class Api::BillsController < ApplicationController
       # Helper method to find all of the paid ones
   
       paid_and_other_list = find_paid_splits(new_billsplit_info)
-      debugger
+      # debugger
       # paid_other_list[0] will either be a single array or and array of arrays
       if paid_and_other_list[0][0].kind_of?(Array)
-        debugger
+        # debugger
         paid_billsplit_ids = paid_and_other_list[0].collect { |idx| idx[0] }
       else
         # In the case of paid_and_other_list[0] being an empty array
         if paid_and_other_list[0].first == nil
-          debugger
+          # debugger
           paid_billsplit_ids = []
         else
           paid_billsplit_ids = [paid_and_other_list[0].first]
@@ -53,14 +53,14 @@ class Api::BillsController < ApplicationController
       end
   
       if paid_billsplit_ids.length > 0
-        debugger
+        # debugger
         Billsplit.where(id: paid_billsplit_ids).update_all(recipient_paid: true, splited_bill_amount: 0)
       end
   
   
-      debugger
+      # debugger
       if paid_and_other_list[1].length > 0
-        debugger
+        # debugger
         uneven_payment(paid_and_other_list[1])
       end
   
@@ -68,7 +68,7 @@ class Api::BillsController < ApplicationController
       bill_paid_info = current_user.bill_paid
   
       Bill.where(id: bill_paid_info).update_all(paid: true)
-      debugger
+      # debugger
       @bills = current_user.net_payments(current_user.id)
 
       render json: @bills.to_json
@@ -80,28 +80,28 @@ class Api::BillsController < ApplicationController
     def find_paid_splits(array)
     
       counter = 0
-      debugger 
+      # debugger 
       array.each do |split|
         if split[2] == 0
           counter += 1
         end
       end
-      debugger
+      # debugger
       if counter == 0
-        debugger
+        # debugger
         return array.unshift([])
       else
-        debugger
+        # debugger
         paid_splits = array.slice(0, counter)
   
         if array.length > counter
-          debugger
+          # debugger
           paid_splits.push(array[array.length - 1])
         else
-          debugger
+          # debugger
           paid_splits.push([])
         end
-        debugger
+        # debugger
         paid_splits
       end
   
@@ -113,12 +113,12 @@ class Api::BillsController < ApplicationController
     
     ###########
     def uneven_payment(billsplit)
-      debugger
+      # debugger
       if billsplit[0].is_a? Integer
-        debugger
+        # debugger
         Billsplit.find(billsplit[0]).update(recipient_paid: billsplit[1], splited_bill_amount: billsplit[2])
       elsif billsplit[0].is_a? String
-        debugger
+        # debugger
         new_bill = Bill.create(amount: billsplit[2],
                               description:"Overpayment",
                               bill_date: Time.now.strftime("%Y/%m/%d").gsub(/\//,'-'),
@@ -128,7 +128,7 @@ class Api::BillsController < ApplicationController
                               nums_splits: 2
                               )
         Billsplit.create(bill_id: new_bill.id, recipient_id: bill_params[:settleTo], splited_bill_amount: billsplit[2])
-        debugger
+        # debugger
       end
   
     end

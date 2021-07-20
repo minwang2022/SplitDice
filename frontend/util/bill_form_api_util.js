@@ -16,10 +16,10 @@ export const fetchBills = () => (
 );
   
   
-export const settleBill = bill => (
+export const settleBill = bills => (
     $.ajax({
         url:'/api/bills',
         method: 'PUT',
-        data: {bill}
+        data: {bills}
     })
 );

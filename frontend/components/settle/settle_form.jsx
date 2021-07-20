@@ -9,7 +9,7 @@ class SettleForm extends React.Component {
       settleTo:"",
       amount: "",
       whichSearch:""
-    };
+    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.chooseSettleFrom = this.chooseSettleFrom.bind(this);
@@ -17,37 +17,45 @@ class SettleForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  update(input_type) {
+  update(field) {
     return (
       event => {
-        this.setState( {[input_type]: event.target.value });
+        this.setState( {[field]: event.target.value });
         this.setState({whichSearch:""});
       }
     );
   }
 
   clearState() {
-    this.setState({settleFrom:"", settleTo: "", amount:"", whichSearch:""});
+    this.setState({
+        settleFrom:"", 
+        settleTo: "", 
+        amount:"", 
+        whichSearch:""
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const settleUpData = {settleFrom: this.findId(this.state.settleFrom), settleTo: this.findId(this.state.settleTo), amount: this.state.amount};
-    debugger 
-    this.props.settleBill(settleUpData).then(
-      
-      () => {
-        // Put like a friend added box or something?
-        this.props.closeModal();
-        this.props.clearSearch();
-        this.clearState();
-      }, err => {
-        this.props.clearSearch();
-        this.clearState();
 
-      }
-    );
-      debugger 
+    let settleUpData = {
+      settleFrom: this.findId(this.state.settleFrom), 
+      settleTo: this.findId(this.state.settleTo), 
+      amount: this.state.amount
+    };
+
+    debugger 
+
+    this.props.settleBill(settleUpData);
+      
+      
+    // Put like a friend added box or something?
+    this.props.clearSearch();
+    this.clearState();
+    this.props.closeModal();
+    
+    
+    debugger 
   }
 
   // Settle from Click

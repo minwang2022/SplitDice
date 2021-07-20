@@ -41,7 +41,7 @@ export const fetchBills = () => (dispatch) => {
 };
 
 export const settleBill = (bill) => (dispatch) => {
-  debugger 
+   
   return util.settleBill(bill).then(
     (bills) => dispatch(receiveBills(bills)),
     (err) => dispatch(receiveErrors(err.responseJSON))

@@ -1,3 +1,4 @@
+import React from 'react';
 import SettleForm from './settle_form.jsx';
 import { searchFriends, clearSearch } from '../../actions/friendship_actions.js';
 import { settleBill } from '../../actions/bill_actions.js';
