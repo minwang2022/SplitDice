@@ -140,7 +140,7 @@ class BillForm extends React.Component {
                         <label className= "modal-bill">With you and:
                             <input 
                                 type="text"
-                                placeholder="Enter names separate by colon"
+                                placeholder="Enter names separate by comma"
                                 onChange={this.update('recipients')}
                                 className= "box"
                             />
