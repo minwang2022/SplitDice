@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 
 
+
 // make sure bills container is listening to the right pieces of state
 // the bills reducer will now have friend actions and bill actions.
 
@@ -23,7 +24,7 @@ const mDTP = dispatch => {
     fetchBills: () => dispatch(fetchBills()),
     // searchFriends: (query) => dispatch(searchFriends(query)),
     // clearSearch: () => dispatch(clearSearch()),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
   };
 };
 

@@ -1,9 +1,9 @@
 class Api::BillsController < ApplicationController
   before_action :require_logged_in, only: [:create, :index]
     def create
-
+      # debugger
       split = bill_params[:amount].to_f / (bill_params[:recipients].length + 1)
-  
+      # debugger 
       @bill = Bill.new(
                       amount: bill_params[:amount].to_f,
                       description: bill_params[:description],

@@ -32,14 +32,31 @@ chi = User.create(username:"chi", email: "chi@chi.com", password:"password")
 Friendship.destroy_all
 
 may_june = Friendship.create(user_id: may.id, friend_id: june.id)
+june_may = Friendship.create(user_id: june.id, friend_id: may.id)
+
 may_april = Friendship.create(user_id: may.id, friend_id: april.id)
+mapril = Friendship.create(user_id: april.id, friend_id: may.id)
+
 may_david = Friendship.create(user_id: may.id, friend_id: david.id)
+mdavid = Friendship.create(user_id: david.id, friend_id: may.id)
+
 may_bill = Friendship.create(user_id: may.id, friend_id: bill.id)
+mbill = Friendship.create(user_id: bill.id, friend_id: may.id)
+
 may_chole = Friendship.create(user_id: may.id, friend_id: chole.id)
+mchole = Friendship.create(user_id: chole.id, friend_id: may.id)
+
 may_kat = Friendship.create(user_id: may.id, friend_id: kat.id)
+mkat = Friendship.create(user_id: kat.id, friend_id: may.id)
+
 may_fredy = Friendship.create(user_id: may.id, friend_id: fredy.id)
+mfredy = Friendship.create(user_id: fredy.id, friend_id: may.id)
+
 may_fred = Friendship.create(user_id: may.id, friend_id: fred.id)
+mfred = Friendship.create(user_id: fred.id, friend_id: may.id)
+
 may_chi = Friendship.create(user_id: may.id, friend_id: chi.id)
+mchi = Friendship.create(user_id: chi.id, friend_id: may.id)
 
 
 Bill.destroy_all

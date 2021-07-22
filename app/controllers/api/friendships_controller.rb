@@ -6,7 +6,7 @@ class Api::FriendshipsController < ApplicationController
         render :index
     end
 
-  
+    
 
     private 
 

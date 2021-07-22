@@ -23,8 +23,9 @@ class Api::UsersController < ApplicationController
     else
       # debugger
       @friendship = Friendship.new(user_id:current_user.id, friend_id: @friend.id)
+      @friendship1 = Friendship.new(user_id:@friend.id, friend_id: current_user.id)
 
-      if @friendship.save!
+      if @friendship.save! && @friendship1.save!
         # debugger
         @friends = current_user.friends
         # @friendships = Friendship.where(user_id: current_user.id)

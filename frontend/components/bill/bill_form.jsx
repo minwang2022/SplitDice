@@ -15,9 +15,7 @@ class BillForm extends React.Component {
         this.clearState = this.clearState.bind(this);
     };
    
-    // componentDidMount() {
-    //     this.props.fetchBills();
-    // };
+   
    
     update(field) {
         // debugger 
@@ -29,16 +27,6 @@ class BillForm extends React.Component {
       );
     }
 
-    // updateAndQuery(field) {
-    //     return (
-    //       event => {
-    //         this.setState({ [field]: event.target.value });
-    //         this.props.searchFriends(event.target.value).then(users => { console.log("success");});
-    //       }
-    //     );
-    
-    // }
-
     clearState() {
         this.setState({
             amount: '',
@@ -49,33 +37,6 @@ class BillForm extends React.Component {
         });
     }
     
-    // chooseUser(e) {
-
-    //     const newRecipients = this.state.recipients.slice();
-    //     e.preventDefault();
-    //     const username = e.currentTarget.textContent.replace(/\s/g, '');
-    //     newRecipients.push(username);
-    //     this.setState({recipients: newRecipients });
-    //     this.setState({username:""});
-    
-    //     this.props.clearSearch();
-    
-    // }
-
-    // removeRecipient(e) {
-    //     e.preventDefault();
-    
-    //     const recipients = this.state.recipients.slice();
-    
-    //     const user = e.currentTarget.textContent.replace(/\s/g, '');
-    
-    //     const index = recipients.indexOf(user);
-    
-    //     recipients.splice(index, 1);
-    
-    //     this.setState({recipients: recipients});
-    
-    // }
     // Adding a bill
     handleSubmit(e) {
       e.preventDefault();
@@ -95,7 +56,13 @@ class BillForm extends React.Component {
                 let friend = friends[j];
                 if (friend.username === recipient) {
                     // debugger
-                    recipientIdsArray.push(friend.friendId);
+                    let friendId = friend.id;
+
+                    if (!friendId) {
+                        friendId = friend.friendId;
+                    };
+
+                    recipientIdsArray.push(friendId);
                     break;
                 }
                 j++
@@ -103,7 +70,7 @@ class BillForm extends React.Component {
             i++
         }
         let recipientIds = recipientIdsArray;
-  
+        // debugger 
         let bill = {
             amount: this.state.amount,
             category: this.state.category,
@@ -119,17 +86,6 @@ class BillForm extends React.Component {
     
     render(){
         
-        // const searchList = this.props.friends.map((el, idx) => {
-        //     if (!this.state.recipients.includes(el.username)) {
-        //         return <li key={idx} onClick={this.chooseUser}> {el.username} </li>;
-        //       }
-        //     });
-      
-        // const selectedUsers = this.state.recipients.map((el, idx) => {
-        //     return <li key={idx} className="selected" onClick={this.removeRecipient}>{el}<div id="close">x</div></li>;
-        // });
-
-
         const InsertTags = () => {
             if (this.state.recipients !== '') {
                 return (
