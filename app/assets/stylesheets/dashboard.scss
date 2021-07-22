@@ -319,3 +319,35 @@
     line-height: 16px;
     color: #1CC29F;
   }
+
+  .settle-input-box {
+    justify-content: center;
+    width: 80%;
+    height: 40px;
+    font-size: 20px;
+    margin: 10px;
+    line-height: 110%;
+    // border: 1px solid #cccccc;
+    // border-radius: 5px;
+    background-color: #ffffff;
+    padding: 4px;
+  }
+
+  .side-modal {
+    position: absolute;
+    left: 69%;
+    top: 11.5%;
+    background: #fff;
+    width: 180px;
+    border: 1px solid #999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    transition: all .3s ease;
+  }  
+
+  .settle-user-list{
+    font-size: 20px;
+  }
+  .hover-name:hover {
+    cursor: pointer;
+  }
