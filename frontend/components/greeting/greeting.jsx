@@ -13,7 +13,7 @@ const Greeting = ({ currentUser, logout }) => {
   );
   const personalGreeting = () => (
     <header className="login-signup">
-      <h2 >Hi, {currentUser.username}!</h2>
+      <h2 className="current-guest">Hi, {currentUser.username}!</h2>
       &nbsp;&nbsp;
       <button className="signup-button" onClick={logout}>Log Out</button>
     </header>

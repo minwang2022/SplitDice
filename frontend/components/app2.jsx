@@ -13,7 +13,7 @@ const App = () => (
   <div>
     <Modal/>
     <header className= "Project-Header">
-      <Link to="/" className="header-top"><h1 >Split Dice</h1></Link>
+      <Link to="/" className="header-top"><h1 >Splitdice</h1></Link>
       <GreetingContainer />
     </header>
     

@@ -80,8 +80,10 @@ class Dashboard extends React.Component {
         const oweList = Object.keys(this.props.bills.owe).map((user, index) => {
             return (
                 <li key={index}>
-                    <p>{user}</p>
-                    <p>you owe <strong>{this.props.bills.owe[user]}</strong></p>
+                    <div className="owe-name-block">
+                        <p className="name">{user}</p>
+                        <p className="negative-one">you owe <strong>${this.props.bills.owe[user]}</strong></p>
+                    </div>
                 </li>
             );
         });
@@ -89,92 +91,134 @@ class Dashboard extends React.Component {
         const owedList = Object.keys(this.props.bills.owed).map((user, i) => {
             return (
                 <li key={i}>
-                    <div>
-                        <p>{user}</p>
-                        <br/>
-                        <p>you are owed <strong>{this.props.bills.owed[user]}</strong></p>
+                    <div className="owed-name-block">
+                        <p className="name">{user}</p>
+           
+                        <p className="positive-one">you are owed <strong>${this.props.bills.owed[user]}</strong></p>
                     </div>
                 </li>
             )
         })
         return(
-            <div>
-                <header >
-                    <h1>Dashboard</h1>
-                    <br/>
-                    <ul>
-                        <li>
-                            <button onClick={() => {this.props.openModal({ modal: "addFriend" });}}>
-                                Add Friend
-                            </button>
-                        </li>
-                        <li>
-                            <button onClick={() => {this.props.openModal({ modal: "addBill" });}}>
-                                Add Bill
-                            </button>
-                        </li>
-                        <li>
-                            <button onClick={() => {this.props.openModal({ modal: "settle" });}}>
-                                Settle Up
-                            </button>
-                        </li>
-                    </ul>
-                    
-                     
-                     <br/>
-                </header>
+            <div className="dashboard-whole">
+
+
                 <div className="dashboard-left">
-                <div className="friend-box">
-                    <h2>Friends</h2>
-                    <ul>
-                     {listContent}
-                    </ul>
+                    <div className="friend-box">
+                        <h2>Friends</h2>
+                        <ul>
+                        {listContent}
+                        </ul>
+                    
+                    </div>
+
                    
-                </div>
+                    <button 
+                        className="friend-button" 
+                        onClick={() => {this.props.openModal({ modal: "addFriend" });}}
+                    >
+                        Add Friend
+                    </button>
                 
-                
-                <br></br>
+                    
+                    
                 </div>
-                {/* <BillsContainer/> */}
-                
-                <section >
-                    <h2>Total Balance</h2>
-                    <div>${this.state.balance.toFixed(2)}</div>
-                    <div>
-                        <h2>You Owe</h2>
-                        <div>${this.state.owe.toFixed(2)}</div>
-                    </div> 
-                    <h2>You Are Owed</h2>
-                    <div>${this.state.owed.toFixed(2)}</div>
-                </section>
-                <div className="you-owe-half">
+                            
+                <div className="dashboard-center">
+                    <div className="dash-top">
+                        <header >
+                            <h1>Dashboard</h1>
+                            <br/>
+                            <ul className="dash-button-list">
+                            
+                                <li>
+                                    <button onClick={() => {this.props.openModal({ modal: "addBill" });}}>
+                                        Add Bill
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => {this.props.openModal({ modal: "settle" });}}>
+                                        Settle Up
+                                    </button>
+                                </li>
+                            </ul>
+                            
+                            
+                            <br/>
+                        </header>
 
-                    {!(this.props.bills.owe) ? (
+                        <section className="dashboard-bottom">
+                            <div className="dashboard-block">
 
-                    <div>You do not owe anything</div>
-                    ) : (
-                    <ul>
-                        {oweList}
+                                <div>
+                                    <div className="title">Total Balance</div>
+                                    <br/>
+                                    <p className={"amount " + (this.state.balance > 0 ? "positive" : "negative")}>${this.state.balance.toFixed(2)}</p>
+                                </div>
+                            </div> 
+                            <div className="dashboard-block">
+                                <div>
+                                    <div className="title">You Owe</div>
+                                    <br/>
+                                    <p className="negative"> ${this.state.owe.toFixed(2)}  </p>
+                                </div>
+                            </div> 
+                            <div className="dashboard-block">
+                                <div>
+                                    <div className="title">You Are Owed</div>
+                                    <br/>
+                                    <p className="positive"> ${this.state.owed.toFixed(2)}</p>
+                                </div>
+                            </div>
+                            
+                        </section>
+                    </div>
+                        <div>
 
-                    </ul>
-                    )}
+                            <div className="owe-titles">
+                                <div>YOU OWE</div>
+                                <div>YOU ARE OWED</div>
+                            </div>
+                            <div className="owe-list">
+                                <div className="you-owe-half">
 
-                </div>
+                                    {!(this.state.owe) ? (
 
-                <div className="you-are-owed-half">
+                                        <p>You do not owe anything</p>
+                                        ) : (
+                                        <ul>
+                                            {oweList}
 
-                    {!(this.props.bills.owed) ? (
+                                        </ul>
+                                    )}
 
-                    <div>You are not owed anything</div>
-                    ) : (
-                    <ul>
-                        {owedList}
+                                </div>
 
-                    </ul>
-                    )}
+                                <div className="you-are-owed-half">
 
-                </div>
+                                    {!(this.state.owed) ? (
+
+                                    <div>You are not owed anything</div>
+                                    ) : (
+                                    <ul>
+                                        {owedList}
+
+                                    </ul>
+                                    )}
+
+                                </div>
+
+                            </div>
+                           
+                        </div>
+                    {/* <BillsContainer/> */}
+                </div> 
+             
             </div>
+                
+               
+            
+       
         )};
 }
 
