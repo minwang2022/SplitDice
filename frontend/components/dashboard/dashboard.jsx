@@ -105,7 +105,7 @@ class Dashboard extends React.Component {
 
                 <div className="dashboard-left">
                     <div className="friend-box">
-                        <h2>Friends</h2>
+                        <h2 className="friend-bar">Friends</h2>
                         <ul>
                         {listContent}
                         </ul>

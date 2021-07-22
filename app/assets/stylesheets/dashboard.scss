@@ -10,7 +10,6 @@
     width: 700px;
     min-width: 700px;
     height:686px;
-    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 .dashboard-left {
     display: inline-flex;
@@ -51,6 +50,10 @@
     box-shadow: 0 2px 0 0 #3a3e4380;
     text-align: center;
     max-width: 110px;
+}
+.friend-bar {
+    margin: 10px;
+    padding-top: 15px;
 }
 .person-icon {
     width:15px;

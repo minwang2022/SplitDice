@@ -12,8 +12,8 @@
 #
 # Indexes
 #
-#  index_bill_splits_on_bill_id       (bill_id)
-#  index_bill_splits_on_recipient_id  (recipient_id)
+#  index_billsplits_on_bill_id       (bill_id)
+#  index_billsplits_on_recipient_id  (recipient_id)
 #
 class Billsplit < ApplicationRecord
     validates :bill_id, :recipient_id, presence: true
