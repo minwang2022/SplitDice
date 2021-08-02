@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faIgloo  } from '@fortawesome/free-solid-svg-icons';
+import { faDice } from '@fortawesome/free-solid-svg-icons';
 
 class Footer extends React.Component{
     constructor(props){
@@ -15,9 +15,11 @@ class Footer extends React.Component{
         return(
             <footer className="main-footer">
                 <div className="footer-logo-container">
-                    <Link className="logo-box" to="/" style={{ textDecoration: 'none', color: "black" }}> <FontAwesomeIcon className="logo-footer" icon={faIgloo} size='3x' />
+                    <Link className="logo-box" to="/" 
+                    style={{ textDecoration: 'none', color: "black" }}> 
+                    <FontAwesomeIcon className="fas fa-dice" icon={faDice} size='3x'/>
                         <p className='logo-footer-title'>Splitdice</p>
-                    </Link>
+                    </Link>   
                 </div>
                 
                 
