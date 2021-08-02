@@ -129,6 +129,7 @@ class SessionForm extends React.Component {
                             className= "input-boxx"
                         />
                         {InsertForm()}
+                        
                         <br/>
                         <div>
                             <button className= "signup-button">Sign me up!</button>

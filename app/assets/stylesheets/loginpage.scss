@@ -41,17 +41,15 @@
 }
 .input-boxx {
   display: flex;
-
   justify-content: center;
-  
   height: 42px;
   font-size: 32px;
-  margin-bottom: 17px;
+  margin-bottom: 10px;
   line-height: 110%;
   border: 1px solid #cccccc;
   border-radius: 5px;
   background-color: #ffffff;
-  padding: 4px;
+  padding: 2px;
 }
 
 .input-box:focus {
