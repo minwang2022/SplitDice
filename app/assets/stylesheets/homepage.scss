@@ -1,5 +1,6 @@
 
   .main-content {
+    display: flex;
     position: relative;
   }
   
@@ -8,7 +9,7 @@
     margin: 0 auto;
     font-family: "Helvetica Neue", serif;
     color: rgb(68,68,68);
-    padding-top: 20px;
+    // padding-top: 20px;
   }
   
   .headline {
@@ -37,21 +38,23 @@
   }
   
   .homepage-container{
-    background-image: url('homepage_background.png');
+    background-color: rgb(243, 234, 234);
     z-index: -1;
     background-size: cover;
     position: absolute;
     min-width: 100%;
-    min-height: 100%;
-    margin-top: 40px;
+    min-height: 80%;
+    display: flex;
+    align-items: center;
+    // margin-top: 50px;
   }
   
-  .image-form {
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 150px;
-    text-align: center;
-  }
+  // .image-form {
+  //   width: 100%;
+  //   margin: 0 auto;
+  //   padding-top: 150px;
+  //   text-align: center;
+  // }
   
 
   .signup-button {
@@ -95,3 +98,6 @@
     cursor: pointer;
   }
  
+// .headline {
+//   padding-top: 25px;
+// }

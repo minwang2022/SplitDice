@@ -7,6 +7,7 @@ import DashboardContainer from './dashboard/dashboard_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import GreetingContainer from './greeting/greeting_container';
 import Modal from './modal/modal';
+import Footer from './footer/footer';
 
 const App = () => (
 
@@ -23,6 +24,9 @@ const App = () => (
     <ProtectedRoute exact path="/dashboard" component={DashboardContainer}/>
     <AuthRoute exact path="/" component={Homepage} />
     </Switch>
+
+    <Footer/>
+    
   </div>
   );
 

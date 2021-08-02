@@ -24,13 +24,15 @@ class Homepage extends React.Component {
                 <section className="main-content group">
                 <div className="headline">
                     <div className="top-line-headline">
-                    <div className="money-icon"></div>
-                    <h1>Less stress when sharing expenses <strong>on trips</strong></h1>
-                    <br/>
-                    <Link to="signup" className="signup-button">Sign up</Link>
-                     &nbsp;&nbsp;
-                    <button onClick={this.handleDemoLogin} className="signup-button">Demo</button>
-                    <p><strong>Totally free</strong> for web, iPhone, and Android.</p>
+
+                        <div className="headline">
+                            <h1>Less stress when sharing <br></br>expenses <strong>on trips</strong></h1>
+                        </div>
+                        <br></br>
+                        <Link to="signup" className="signup-button">Sign up</Link>
+                            &nbsp;&nbsp;
+                        <button onClick={this.handleDemoLogin} className="signup-button">Demo</button>
+                        <p><strong>Totally free</strong> for web, iPhone, and Android.</p>
                     </div>
                 </div>
                 </section>
