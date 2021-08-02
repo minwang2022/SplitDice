@@ -163,7 +163,7 @@ class BillForm extends React.Component {
                         <br/>
 
                        
-                        <input className="signup-button" type="submit" value="Create Bill"/>
+                        <input className="modal-button" type="submit" value="Create Bill"/>
                     </div>
                   
                 </form>

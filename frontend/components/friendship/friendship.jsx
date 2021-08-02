@@ -104,7 +104,7 @@ class Friends extends React.Component {
                   <input type="text"
                     value={this.state.username}
                     onChange={this.update('username')}
-                    className= "input-box"
+                    className= "input-boxx"
                   />
                 <br/>
                 <ul className="add-friend-search">
@@ -112,7 +112,7 @@ class Friends extends React.Component {
                 </ul>
                 <div className="add-friend-button-group">
                   <div className="add-friend-button">
-                    <input className="signup-button" type="submit" value="Add Friend"></input>
+                    <input className="modal-button" type="submit" value="Add Friend"></input>
                   </div>
                 </div>
               </div>

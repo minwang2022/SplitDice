@@ -198,7 +198,7 @@ class SettleForm extends React.Component {
 
               <br/>
                   <div className="add-friend-button">
-                    <input className="signup-button" type="submit" value="Save"></input>
+                    <input className="modal-button" type="submit" value="Save"></input>
                   </div>
               </form>
           <br/>
