@@ -36,10 +36,9 @@ class Homepage extends React.Component {
                     </div>
                 </div>
                 </section>
-                <div className="img-background"></div>
-                <div className="image-form group">
-                    <div className="splitwise-img"></div>
-                </div>
+                
+                <img className="img-background" src={window.background} alt="background" />
+              
             </div>
         )
     }

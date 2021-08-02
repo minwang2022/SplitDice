@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
                                 type="email"
                                 value={this.state.email}
                                 onChange={this.update('email')}
-                                className= "input-box"
+                                className= "input-boxx"
                             />
                         <br/>
                         <label className= "input-text">And here's my &nbsp;<strong> password</strong>:</label>
@@ -66,7 +66,7 @@ class SessionForm extends React.Component {
                                 type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
-                                className= "input-box"
+                                className= "input-boxx"
                             />
 
                     </div>
@@ -107,6 +107,8 @@ class SessionForm extends React.Component {
                         <br/>
                         <input className="login-button" type="submit" value={this.props.formType} />
                     </form>
+                    <img className="img-background" src={window.background} alt="background" />
+
                 </div>
         )} else {
             return (
@@ -124,7 +126,7 @@ class SessionForm extends React.Component {
                             type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
-                            className= "input-box"
+                            className= "input-boxx"
                         />
                         {InsertForm()}
                         <br/>
@@ -132,6 +134,7 @@ class SessionForm extends React.Component {
                             <button className= "signup-button">Sign me up!</button>
                         </div>
                     </form>
+
                 </div>    
                 
             
