@@ -74,7 +74,9 @@ class Dashboard extends React.Component {
             return 0;
           })
         .map((friend, idx) => {
-            return <li key={idx}><div className="person-icon"></div>{friend.username}</li>;
+            return <li key={idx}>
+                <img className="person-icon" src={window.personIcon} alt="icon" />
+                {friend.username}</li>;
           });
 
         const oweList = Object.keys(this.props.bills.owe).map((user, index) => {

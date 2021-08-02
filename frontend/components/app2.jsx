@@ -8,7 +8,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import GreetingContainer from './greeting/greeting_container';
 import Modal from './modal/modal';
 import Footer from './footer/footer';
-import { faDice } from '@fortawesome/free-solid-svg-icons';
 
 const App = () => (
 
