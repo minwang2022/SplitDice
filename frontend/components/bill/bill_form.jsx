@@ -56,12 +56,15 @@ class BillForm extends React.Component {
                 let friend = friends[j];
                 if (friend.username === recipient) {
                     // debugger
-                    let friendId = friend.id;
-
-                    if (!friendId) {
-                        friendId = friend.friendId;
+                    let friendId;
+                    // console.log(friendId);
+                    if (friend.friendId) {
+                        friendId = friend.friendId
+                    } else {
+                        friendId = friend.id;
                     };
-
+                    // console.log(friendId);
+                    debugger
                     recipientIdsArray.push(friendId);
                     break;
                 }
@@ -70,7 +73,7 @@ class BillForm extends React.Component {
             i++
         }
         let recipientIds = recipientIdsArray;
-        // debugger 
+        debugger 
         let bill = {
             amount: this.state.amount,
             category: this.state.category,
@@ -101,6 +104,7 @@ class BillForm extends React.Component {
                         <input 
                             type="number"
                             placeholder="$ 0.00"
+                            // step="0.01"
                             onChange={this.update('amount')}
                             className= "modal-input"
                         />
