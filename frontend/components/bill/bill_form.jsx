@@ -64,7 +64,7 @@ class BillForm extends React.Component {
                         friendId = friend.id;
                     };
                     // console.log(friendId);
-                    debugger
+                    // debugger
                     recipientIdsArray.push(friendId);
                     break;
                 }
