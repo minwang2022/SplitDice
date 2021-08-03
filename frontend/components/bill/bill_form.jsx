@@ -104,7 +104,7 @@ class BillForm extends React.Component {
                         <input 
                             type="number"
                             placeholder="$ 0.00"
-                            // step="0.01"
+                            step="0.01"
                             onChange={this.update('amount')}
                             className= "modal-input"
                         />
