@@ -9,7 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('favicon.png') %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-
+    
+    <meta property="og:title" content="Splitdice" />
+    <meta property='og:image' content="<%= image_url('splitdice_photo.png') %>"/>
+    <meta property="og:description"
+      content="A full stack project clone of Splitwise"
+    />
+    <meta property="og:url"
+      content="http://splitdice.herokuapp.com/#/"
+    />
    <script>
       window.personIcon = '<%= image_url('person-icon.png') %>'
       window.background = '<%= image_url('background.png') %>'
