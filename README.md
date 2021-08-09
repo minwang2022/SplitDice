@@ -5,7 +5,7 @@ SplitDice is a clone of SplitWise - a simple app to keep track of your shared ex
 
 *[SplitDice Deployed on Heroku](https://splitdice.herokuapp.com/#/)
 
-*[Splitwise](https://splitwise.com/)
+*[Splitwise](https://www.splitwise.com/)
 
 ## Features 
 * User authentication & account creation
