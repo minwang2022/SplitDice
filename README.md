@@ -1,24 +1,17 @@
 # README
 
-
+# Splitdice
 SplitDice is a clone of SplitWise - a simple app to keep track of your shared expense and balance with housemate, trips, groups, friends, and family. Our algorithm provides best solution to split the expenses fairly by the least transactions.
 
 *[SplitDice Deployed on Heroku](https://splitdice.herokuapp.com/#/)
 
-*[Splitwise](https://https://secure.splitwise.com/)
+*[Splitwise](https://splitwise.com/)
 
 ## Features 
 * User authentication & account creation
 * Friending functionality + friends Search + user Search
 * Bill Create
 * Bill settle Algorithm behind Bill splitting involved multi-relation
-
-
-
-# Splitdice
-SplitDice is a clone of SplitWise - a simple app to keep track of your shared expense and balance with housemate, trips, groups, friends, and family. Our algorithm provides optimum solution to split the expenses fairly by the least transactions.
-
-## Come for a visit at https://splitdice.herokuapp.com/#/
 
 ## Technologies Used
 
@@ -100,7 +93,7 @@ Code that offsets payments
 ```
 
 ### Modals, Modals, Modals
-Much akin to Splitwise, splitdice utilizes many modals to aid in user experience. Whether it is for add a friend, creating  a bill, or settle payments, modals are a lovely tool to keep users engage and cut down on problems. Utilizing Redux to set the present modal to a ui slice of state and then using a JS switch statement to detect which modal is open, then setting the necessary React component to render.
+Much akin to Splitwise, Splitdice utilizes many modals to aid in user experience. Whether it is for add a friend, creating  a bill, or settle payments, modals are a lovely tool to keep users engage and cut down on problems. Utilizing Redux to set the present modal to a ui slice of state and then using a JS switch statement to detect which modal is open, then setting the necessary React component to render.
 
 ![splitdiceModal](https://user-images.githubusercontent.com/72528915/128732595-450d4c6e-f696-4332-b9e9-2a04f70461f3.gif)
 
