@@ -134,9 +134,6 @@ class SettleForm extends React.Component {
 
   render() {
     const {currentUserId, friends} = this.props;
-    // console.log(`currentUserId is ${currentUserId}`);
-    // console.log(this.props.currentUser[currentUserId]);
-    // console.log(this.props.currentUser[currentUserId].username);
     const currentUserName = this.props.currentUser[currentUserId].username;
     const settleFromList = friends.map((user, idx) => {
      

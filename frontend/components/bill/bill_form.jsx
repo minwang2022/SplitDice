@@ -73,7 +73,7 @@ class BillForm extends React.Component {
             i++
         }
         let recipientIds = recipientIdsArray;
-        debugger 
+        // debugger 
         let bill = {
             amount: this.state.amount,
             category: this.state.category,

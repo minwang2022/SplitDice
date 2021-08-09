@@ -54,20 +54,15 @@ class User < ApplicationRecord
         
         owe_hash = owe(current_user_id)
         owed_hash = owed(current_user_id)
-        # debugger 
         user_payments = (owe_hash.keys + owed_hash.keys).uniq
-        # debugger 
         user_payments.each do |user|
-            # debugger 
           # user is in owe_hash and NOT owed_hash
           if owe_hash.has_key?(user) && !owed_hash.has_key?(user)
             payments_hash["owe"][user] = owe_hash[user]
           # user is NOT in owe_hash and in owed_hash
-        #   debugger 
           elsif !owe_hash.has_key?(user) && owed_hash.has_key?(user)
             payments_hash["owed"][user] = owed_hash[user]
           # user is in both owe hash and owed hash
-        #   debugger
           else
                 amount = (owed_hash[user] - owe_hash[user]).round(2)
                 if amount > 0
@@ -80,7 +75,6 @@ class User < ApplicationRecord
                 end
             end 
         end
-        # debugger
         payments_hash
     end
 

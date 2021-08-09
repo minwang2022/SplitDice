@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { login } from '../../actions/session_actions.js';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class SessionForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginErrors = this.loginErrors.bind(this);
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
    }
 
    componentWillUnmount() {
@@ -42,7 +44,11 @@ class SessionForm extends React.Component {
         )
     };
 
-
+    handleDemoLogin(e){
+        e.preventDefault(); 
+        let user = {username: "guest", password: "password"}
+        store.dispatch(login(user));
+    };
    
    render() {
 
@@ -86,7 +92,7 @@ class SessionForm extends React.Component {
                         {this.loginErrors()}
                         <br/>
                         <label > Username: </label>
-                        <br/>
+                        
                             <input 
                                 type="text"
                                 value={this.state.username}
@@ -94,9 +100,9 @@ class SessionForm extends React.Component {
                                 className= "input-box"
                             />
                        
-                        <br/>
+                     
                         <label>Password: </label>
-                        <br/>
+                      
                             <input 
                                 type="password"
                                 value={this.state.password}
@@ -104,8 +110,11 @@ class SessionForm extends React.Component {
                                 className= "input-box"
                         />
                        
-                        <br/>
+                        
                         <input className="login-button" type="submit" value={this.props.formType} />
+                        <br/>
+
+                        <button onClick={this.handleDemoLogin} className="signup-button"> Demo </button>
                     </form>
                     <img className="img-background" src={window.background} alt="background" />
 
@@ -119,7 +128,7 @@ class SessionForm extends React.Component {
                         {this.loginErrors()}
                         <br/>
                         <div className= "input-text">
-                            Hi threre! My name is
+                            Hi there! My name is
                         </div>
                         <br/>
                         <input 

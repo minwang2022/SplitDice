@@ -72,31 +72,21 @@ class Friends extends React.Component {
     this.props.friends.map(ele => {
       currentFriends.push(ele.username)
     });
-    // console.log(currentFriends);
 
       if(!this.state.searchList){
         searchData = null;
       } else { 
         searchData = this.state.searchList.map((el, idx) => {
-          // console.log(currentFriends);
-          
-          // debugger 
-
             if(!currentFriends.includes(el.username)) {
               return (<li key={idx} onClick={this.chooseUser}> {el.username} </li>);
             }
-          })
+        })
       }
-    
-    // const listContent = this.props.friends.map((friend, idx) => {
-    //   return <li key={idx}><div className="person-icon"></div>{friend.username}</li>;
-    // });
-    
+
     let addFriendForm = (
       <div className="add-bill-modal">
           
           <form className="add-bill-block" onSubmit={this.handleSubmit} >
-            {/* <h2>Add a Friend!</h2> */}
               <div className="add-form">
                 <br/>
                 <label className= "modal-bill">Username:</label>
@@ -123,10 +113,6 @@ class Friends extends React.Component {
 //// saperate the from and list content later for modal.////
     return (
       <div className="friend-box">
-        {/* <h1>Friends<strong>+Add</strong> </h1> */}
-        {/* <ul>
-          {listContent}
-        </ul> */}
         {addFriendForm}
       </div>
     );
