@@ -58,7 +58,7 @@ User can create bills and split bills with multiple friends. The algo implemente
 ![splitdiceBill](https://user-images.githubusercontent.com/72528915/128729862-e27e0baa-eac8-45c8-a902-fdedada95cb4.gif)
 
 ### Search Code Snippet
-Code that offsets payments
+Code that creat and offsets qualify payments
 ```ruby
     ########Bills Logic########
 
