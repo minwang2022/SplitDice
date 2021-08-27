@@ -27,7 +27,7 @@ class Footer extends React.Component{
                     <a target="_blank" href="http://linkedin.com/in/mike-wang-38294097"><i className="fab fa-linkedin"></i></a>
                     <a target="_blank" href="https://github.com/minwang2022"><i className="fab fa-github"  ></i></a>
                     <a target="_blank" href="https://angel.co/min-wang-13/"><i className="fab fa-angellist"  ></i></a>
-                    <a target="_blank" href="https://minwang.com"> <i id="port" className="fas fa-user"></i></a>
+                    <a target="_blank" href="https://minwang2022.github.io/Personal-Site/"> <i id="port" className="fas fa-user"></i></a>
                     
                     
                 </div>
